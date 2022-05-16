@@ -1,0 +1,7 @@
+Recipient's name: jan
+Payment method: Phone
+Phone: 123456789
+Title of transfer: asfasf
+Amount: 152.0 EURO
+Date of transfer: 2022-02-02
+Email: dupa@gmail.com
