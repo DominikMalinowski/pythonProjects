@@ -446,4 +446,3 @@ newZip.write('spam.txt', compress_type=zipfile.ZIP_DEFLATED)
 newZip2.write('spam.txt', compress_type=zipfile.ZIP_DEFLATED)
 newZip.close()
 
-##
