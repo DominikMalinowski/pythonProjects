@@ -1,4 +1,3 @@
-
 # import of selenium and webdriver
 import unittest
 
@@ -9,17 +8,13 @@ from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
-class MainTests(unittest.TestCase):
-    # setUp - perform before every test
-    def setUp(self):
-        pass
 
-    #setUpClass - perform before everything
+class MainTests(unittest.TestCase):
+
     @classmethod
     def setUpClass(self):
         self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
 
-    # test 1
     def test_demo_login(self):
         driver = self.driver
         url = 'https://demobank.jaktestowac.pl/logowanie_etap_1.html'
@@ -27,37 +22,25 @@ class MainTests(unittest.TestCase):
         title = driver.title
         print(f'Actual title : {title}')
         expected_title = 'Demobank - Bankowość Internetowa - Logowanie'
-        self.assertEqual(expected_title, title,
+        self.assertEqual (expected_title, title,
                          f'Expected title: ({expected_title}) differ from actual title ({title}) for page url {url}')
 
-    # test 2
-    def test_demo_login_2(self):
-        driver = self.driver
-        url = 'https://demobank.jaktestowac.pl/logowanie_etap_1.html'
-        driver.get(url)
-
-        # finding element and taking text from it
         login_form_header_element = driver.find_element(By.XPATH, '//*[@id="login_form"]/h1')
+        # login_form_header_element = driver.find_element(By.XPATH, '//*[@id="login_form_lolcat"]/h1')
         print(f'Login form header text: {login_form_header_element.text}')
 
-        # finding element and providing value for it
-        login_input_element = driver.find_element(By.XPATH, '//*[@id="login_id"]')
+        login_input_element = driver.find_element(By.XPATH,'//*[@id="login_id"]')
+        print(f'Initial value for input box: {login_input_element.get_attribute("value")}')
+
         login_input_element.send_keys('Kiczur123')
         print(f'Value for input box after \'send keys\': {login_input_element.get_attribute("value")}')
 
-        # clearing finded element
+        login_input_element.clear()
         # login_input_element.send_keys(Keys.BACKSPACE)
-        # login_input_element.clear()
+        print(f'Value for input box after clear: {login_input_element.get_attribute("value")}')
 
-        login_next_button_element = driver.find_element(By.XPATH, '//*[@id="login_next"]')
-        login_next_button_element_disabled = login_next_button_element.get_attribute('disabled')
-        print(f'Disabled value {login_next_button_element_disabled}')
 
-    # tearDown - perform after every test
-    #def tearDown(self):
-        #self.driver.quit()
 
-    # # tearDownClass - perform after everything else
     # @classmethod
     # def tearDownClass(self):
     #     self.driver.quit()
