@@ -8,6 +8,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+import time
 
 class MainTests(unittest.TestCase):
     # setUp - perform before every test
@@ -46,12 +47,33 @@ class MainTests(unittest.TestCase):
         print(f'Value for input box after \'send keys\': {login_input_element.get_attribute("value")}')
 
         # clearing finded element
-        # login_input_element.send_keys(Keys.BACKSPACE)
-        # login_input_element.clear()
+        login_input_element.send_keys(Keys.BACKSPACE)
+        login_input_element.clear()
 
+        # getting atribute of element
         login_next_button_element = driver.find_element(By.XPATH, '//*[@id="login_next"]')
         login_next_button_element_disabled = login_next_button_element.get_attribute('disabled')
         print(f'Disabled value {login_next_button_element_disabled}')
+
+        #getting property of attribute
+        login_next_button_element = driver.find_element(By.XPATH, '//*[@id="login_next"]')
+        login_next_button_element_disabled_property = login_next_button_element.get_property('disabled')
+        print(f'Is boolean True? {login_next_button_element_disabled_property == True}')
+
+        # clicking the button
+        login_reminder_element = driver.find_element(By.XPATH, '//*[@id="ident_rem"]')
+        login_reminder_element_use = login_reminder_element.click()
+
+        # closing the pop up (after 2s wait)
+        time.sleep(2)
+        closing_button = driver.find_element(By.XPATH, '//*[@id="shadowbox"]/div/i')
+        closing_button_use = closing_button.click()
+
+        # exercise 2
+        login_input_element = driver.find_element(By.XPATH, '//*[@id="login_id"]')
+        login_input_element.send_keys('123456789', Keys.ENTER)
+        new_value = login_input_element.get_attribute("value")
+        print(new_value)
 
     # tearDown - perform after every test
     #def tearDown(self):
