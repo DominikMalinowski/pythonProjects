@@ -103,7 +103,24 @@ class LoginPageTests(unittest.TestCase):
         login_next_button_element_disabled = login_next_button_element.get_property('disabled')
         print(f'Disabled value after: "{login_next_button_element_disabled}"')
 
+        login_input_element.clear()
 
-    @classmethod
-    def tearDownClass(self):
-        self.driver.quit()
+    def test_button_activity_on_characters_lesser_than_required(self):
+
+        driver = self.driver
+        url = 'https://demobank.jaktestowac.pl/logowanie_etap_1.html'
+        driver.get(url)
+
+        login_input_element = driver.find_element(By.XPATH, '//*[@id="login_id"]')
+        login_input_element.send_keys('12345', Keys.ENTER)
+
+        additional_info_button = driver.find_element(By.XPATH,'//*[@id="login_id_container"]/div[3]/div/i')
+        additional_info_button.click()
+
+        login_id_error = driver.find_element(By.XPATH,'//*[@id="error_login_id"]')
+        login_id_error_text = login_id_error.text
+        print(login_id_error_text)
+
+    # @classmethod
+    # def tearDownClass(self):
+    #     self.driver.quit()
