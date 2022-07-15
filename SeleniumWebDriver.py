@@ -69,12 +69,6 @@ class MainTests(unittest.TestCase):
         closing_button = driver.find_element(By.XPATH, '//*[@id="shadowbox"]/div/i')
         closing_button_use = closing_button.click()
 
-        # exercise 2
-        login_input_element = driver.find_element(By.XPATH, '//*[@id="login_id"]')
-        login_input_element.send_keys('123456789', Keys.ENTER)
-        new_value = login_input_element.get_attribute("value")
-        print(new_value)
-
     # tearDown - perform after every test
     #def tearDown(self):
         #self.driver.quit()

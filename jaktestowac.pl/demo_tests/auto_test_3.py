@@ -1,4 +1,5 @@
 # import of selenium and webdriver
+import time
 import unittest
 
 import selenium
@@ -72,7 +73,6 @@ class LoginPageTests(unittest.TestCase):
         self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
 
     def test_page_title_text(self):
-
         driver = self.driver
         url = 'https://demobank.jaktestowac.pl/logowanie_etap_1.html'
         driver.get(url)
@@ -87,7 +87,6 @@ class LoginPageTests(unittest.TestCase):
                          actual title ({header_page_title}) for page url {url}')
 
     def test_if_continue_button_is_active(self):
-
         driver = self.driver
         url = 'https://demobank.jaktestowac.pl/logowanie_etap_1.html'
         driver.get(url)
@@ -106,7 +105,6 @@ class LoginPageTests(unittest.TestCase):
         login_input_element.clear()
 
     def test_button_activity_on_characters_lesser_than_required(self):
-
         driver = self.driver
         url = 'https://demobank.jaktestowac.pl/logowanie_etap_1.html'
         driver.get(url)
@@ -114,13 +112,26 @@ class LoginPageTests(unittest.TestCase):
         login_input_element = driver.find_element(By.XPATH, '//*[@id="login_id"]')
         login_input_element.send_keys('12345', Keys.ENTER)
 
-        additional_info_button = driver.find_element(By.XPATH,'//*[@id="login_id_container"]/div[3]/div/i')
+        additional_info_button = driver.find_element(By.XPATH, '//*[@id="login_id_container"]/div[3]/div/i')
         additional_info_button.click()
 
-        login_id_error = driver.find_element(By.XPATH,'//*[@id="error_login_id"]')
+        login_id_error = driver.find_element(By.XPATH, '//*[@id="error_login_id"]')
         login_id_error_text = login_id_error.text
         print(login_id_error_text)
 
-    # @classmethod
-    # def tearDownClass(self):
-    #     self.driver.quit()
+    def test_opening_next_page(self):
+        driver = self.driver
+        url = 'https://demobank.jaktestowac.pl/logowanie_etap_1.html'
+        driver.get(url)
+
+        login_input_element = driver.find_element(By.XPATH, '//*[@id="login_id"]')
+        login_input_element.send_keys('12345678', Keys.ENTER)
+        time.sleep(3)
+
+        login_next_button_element = driver.find_element(By.XPATH, '//*[@id="login_next"]')
+        login_next_button_text = login_next_button_element.text
+        print(login_next_button_text)
+
+        # @classmethod
+        # def tearDownClass(self):
+        #     self.driver.quit()
