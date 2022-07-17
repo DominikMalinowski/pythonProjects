@@ -77,3 +77,41 @@ class MainTests(unittest.TestCase):
     # @classmethod
     # def tearDownClass(self):
     #     self.driver.quit()
+
+class LostHatTest(unittest.TestCase):
+
+    # @classmethod
+    # def setUpClass(self):
+    #     self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+
+    def setUp(self):
+        self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+        self.main_page_url = 'https://autodemo.testoneo.com/en/'
+        self.login_page_url = 'https://autodemo.testoneo.com/en/login?back=my-account'
+        self.product_page_url = 'https://autodemo.testoneo.com/en/men/1-1-hummingbird-printed-t-shirt.html'
+
+    def tearDown(self):
+        self.driver.quit()
+
+    def user_login(self, driver, user_mail, user_pass):
+        email_input_field = driver.find_element(By.XPATH, '//*[@type="email"]')
+        email_input_field.send_keys(user_mail)
+
+        password_input_field = driver.find_element(By.XPATH, '//*[@type="password"]')
+        password_input_field.send_keys(user_pass)
+
+        button_next_element = driver.find_element(By.XPATH, '//*[@id="submit-login"]')
+        button_next_element.click()
+
+    def test_correct_login(self):
+        expected_text = 'place holder'
+        user_mail = 'mail@mail.com'
+        user_pass = 'passwordnigga'
+
+        driver = self.driver
+        driver.get(self.login_page_url)
+        self.user_login(driver, user_mail, user_pass)
+        header_element = driver.find_element(By.XPATH, '//*[@class="account"]/*[@class="hidden-sm-down"]')
+        header_element_text = header_element.text
+        self.assertEqual(expected_text, header_element_text, f'Actual account name is different than expected')
+

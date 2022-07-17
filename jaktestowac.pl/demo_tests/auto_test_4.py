@@ -10,7 +10,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 
-class MainTests(unittest.TestCase):
+class LostHatTest(unittest.TestCase):
 
     # @classmethod
     # def setUpClass(self):
@@ -33,17 +33,7 @@ class MainTests(unittest.TestCase):
         header_element_title_text = header_element_title.text
         self.assertEqual(expected_title,header_element_title_text, f'Actual tile of page is diffrent than expected')
 
-    def test_log_in(self):
-        driver = self.driver
-        driver.get(self.login_page_url)
-
-        email_input_field = driver.find_element(By.XPATH, '//*[@id="login-form"]/section/div[1]/div[1]/input')
-        email_input_field.send_keys('mail@mail.com')
-
-        password_input_field = driver.find_element(By.XPATH, '//*[@id="login-form"]/section/div[2]/div[1]/div/input')
-        password_input_field.send_keys('passwordnigga', Keys.ENTER)
-
-    def test_product(self):
+    def test_product_name(self):
         driver = self.driver
         driver.get(self.product_page_url)
 
@@ -52,3 +42,49 @@ class MainTests(unittest.TestCase):
         product_element_name_text = product_element_name.text
         self.assertEqual(expected_product_name,product_element_name_text, f'Actual name is diffrent than expected')
 
+    def test_check_product_price(self):
+        expected_product_price = 'PLN23.52'
+        driver = self.driver
+        driver.get(self.product_page_url)
+
+        price_element = driver.find_element(By.XPATH, '//*[@class="current-price"]//*[@itemprop="price"]')
+        price_element_text = price_element.text
+        self.assertEqual(expected_product_price, price_element_text,
+                         f'Expected text differ from actual for page url: {self.product_page_url}')
+
+    def user_login(self, driver, user_mail, user_pass):
+        email_input_field = driver.find_element(By.XPATH, '//*[@type="email"]')
+        email_input_field.send_keys(user_mail)
+
+        password_input_field = driver.find_element(By.XPATH, '//*[@type="password"]')
+        password_input_field.send_keys(user_pass)
+
+        button_next_element = driver.find_element(By.XPATH, '//*[@id="submit-login"]')
+        button_next_element.click()
+
+    def test_correct_login(self):
+        expected_text = 'place holder'
+        user_mail = 'mail@mail.com'
+        user_pass = 'passwordnigga'
+
+        driver = self.driver
+        driver.get(self.login_page_url)
+        self.user_login(driver, user_mail, user_pass)
+        error_message = driver.find_element(By.XPATH, '//*[@class="account"]/*[@class="hidden-sm-down"]')
+        error_message_text = error_message.text
+        self.assertEqual(expected_text, error_message_text,
+                         f'Actual account name is diffrent than expected')
+
+    def test_incorrect_login(self):
+        expected_text = 'Authentication failed.'
+        user_mail = 'dupa@dupa.com'
+        user_pass = 'passwordnigga'
+
+        driver = self.driver
+        driver.get(self.login_page_url)
+        self.user_login(driver, user_mail, user_pass)
+
+        authentication_error_message = driver.find_element(By.XPATH, '//*[@class="alert alert-danger"]')
+        authentication_error_message_text = authentication_error_message.text
+        self.assertEqual(authentication_error_message_text, expected_text,
+                         f'Actual text is different than expected')
