@@ -2,13 +2,13 @@
 # import of selenium and webdriver
 import unittest
 
-import selenium
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+
 import time
+
 
 class MainTests(unittest.TestCase):
     # setUp - perform before every test
@@ -84,6 +84,7 @@ class LostHatTest(unittest.TestCase):
     # def setUpClass(self):
     #     self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
 
+    # setUp method with pages for test
     def setUp(self):
         self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
         self.main_page_url = 'https://autodemo.testoneo.com/en/'
@@ -93,6 +94,7 @@ class LostHatTest(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
 
+    # method for checking login into website
     def user_login(self, driver, user_mail, user_pass):
         email_input_field = driver.find_element(By.XPATH, '//*[@type="email"]')
         email_input_field.send_keys(user_mail)
@@ -103,15 +105,36 @@ class LostHatTest(unittest.TestCase):
         button_next_element = driver.find_element(By.XPATH, '//*[@id="submit-login"]')
         button_next_element.click()
 
+    # method for checking assertion
+    def assert_expected_text(self, driver, xpath, expected_text, current_url_page):
+        header_element = driver.find_element(By.XPATH, xpath)
+        header_element_text = header_element.text
+        self.assertEqual(expected_text,header_element_text, f'Expected text differ than actual. Page: {current_url_page}')
+
+    # test with correct credential and invoking both method from earlier
     def test_correct_login(self):
         expected_text = 'place holder'
         user_mail = 'mail@mail.com'
         user_pass = 'passwordnigga'
+        xpath = '//*[@class="account"]/*[@class="hidden-sm-down"]'
+        current_url_page = self.login_page_url
 
         driver = self.driver
         driver.get(self.login_page_url)
-        self.user_login(driver, user_mail, user_pass)
-        header_element = driver.find_element(By.XPATH, '//*[@class="account"]/*[@class="hidden-sm-down"]')
-        header_element_text = header_element.text
-        self.assertEqual(expected_text, header_element_text, f'Actual account name is different than expected')
 
+        self.user_login(driver, user_mail, user_pass)
+        self.assert_expected_text(driver,xpath, expected_text, current_url_page)
+
+    # test with incorrect credential and invoking both method from earlier
+    def test_incorrect_login(self):
+        expected_text = 'Authentication failed.'
+        user_mail = 'dupa@dupa.com'
+        user_pass = 'passwordnigga'
+        xpath = '//*[@class="alert alert-danger"]'
+        current_url_page = self.login_page_url
+
+        driver = self.driver
+        driver.get(self.login_page_url)
+
+        self.user_login(driver, user_mail, user_pass)
+        self.assert_expected_text(driver,xpath,expected_text,current_url_page)
