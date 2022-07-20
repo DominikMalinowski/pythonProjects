@@ -5,7 +5,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
-from helpers import funcional_helpers
+from helpers import funcional_helpers as fh
+
 
 class LostHatTest(unittest.TestCase):
 
@@ -67,7 +68,7 @@ class LostHatTest(unittest.TestCase):
         driver = self.driver
         driver.get(self.login_page_url)
 
-        funcional_helpers.user_login(driver, user_mail, user_pass)
+        fh.user_login(driver, user_mail, user_pass)
         self.assert_expected_text(driver,xpath, expected_text, current_url_page)
 
     def test_incorrect_login(self):
@@ -80,7 +81,29 @@ class LostHatTest(unittest.TestCase):
         driver = self.driver
         driver.get(self.login_page_url)
 
-        funcional_helpers.user_login(driver, user_mail, user_pass)
+        fh.user_login(driver, user_mail, user_pass)
         self.assert_expected_text(driver,xpath,expected_text,current_url_page)
+
+class LostHatsFrontPageTests(unittest.TestCase):
+
+    def setUp(self):
+        self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+        self.main_page_url = 'https://autodemo.testoneo.com/en/'
+
+    def tearDown(self):
+        self.driver.quit()
+
+    def test_is_slider_present(self):
+        driver = self.driver
+        driver.get(self.main_page_url)
+
+        xpath = '//*[@id="carousel"]'
+
+        slider_element = driver.find_element(By.XPATH, xpath)
+        actual_slider_height = slider_element.size['height']
+        actual_slider_width = slider_element.size['width']
+
+        self.assertLess(actual_slider_height, 341, f'Slider actual hight is bigger than expected')
+        self.assertLess(actual_slider_width, 691, f'Slider actual width is bigger than expected')
 
 
