@@ -26,7 +26,8 @@ class LostHatTest(unittest.TestCase):
     def assert_expected_text(self, driver, xpath, expected_text, current_url_page):
         header_element = driver.find_element(By.XPATH, xpath)
         header_element_text = header_element.text
-        self.assertEqual(expected_text,header_element_text, f'Expected text differ than actual. Page: {current_url_page}')
+        self.assertEqual(expected_text, header_element_text,
+                         f'Expected text differ than actual. Page: {current_url_page}')
 
     def test_header_element_title(self):
         expected_text = 'Log in to your account'
@@ -69,7 +70,7 @@ class LostHatTest(unittest.TestCase):
         driver.get(self.login_page_url)
 
         fh.user_login(driver, user_mail, user_pass)
-        self.assert_expected_text(driver,xpath, expected_text, current_url_page)
+        self.assert_expected_text(driver, xpath, expected_text, current_url_page)
 
     def test_incorrect_login(self):
         expected_text = 'Authentication failed.'
@@ -82,7 +83,8 @@ class LostHatTest(unittest.TestCase):
         driver.get(self.login_page_url)
 
         fh.user_login(driver, user_mail, user_pass)
-        self.assert_expected_text(driver,xpath,expected_text,current_url_page)
+        self.assert_expected_text(driver, xpath, expected_text, current_url_page)
+
 
 class LostHatsFrontPageTests(unittest.TestCase):
 
@@ -103,7 +105,36 @@ class LostHatsFrontPageTests(unittest.TestCase):
         actual_slider_height = slider_element.size['height']
         actual_slider_width = slider_element.size['width']
 
-        self.assertLess(actual_slider_height, 341, f'Slider actual hight is bigger than expected')
-        self.assertLess(actual_slider_width, 691, f'Slider actual width is bigger than expected')
+        self.assertLess(actual_slider_height, 341,
+                        f'Slider actual hight is bigger than expected. Page: {driver.current_url}')
+        self.assertLess(actual_slider_width, 691,
+                        f'Slider actual width is bigger than expected. Page: {driver.current_url}')
 
+    def test_slider_contain_exact_number_of_slides(self):
+        driver = self.driver
+        driver.get(self.main_page_url)
 
+        expecxted_number_of_slides = 30
+        xpath = '//*[@id="carousel"]/ul/li'
+
+        slider_elements = driver.find_elements(By.XPATH, xpath)
+        actual_number_of_slides = len(slider_elements)
+
+        self.assertEqual(expecxted_number_of_slides, actual_number_of_slides,
+                         f'Actual number of slides is different than expected')
+
+    def test_slider_contain_sample_text(self):
+        driver = self.driver
+        driver.get(self.main_page_url)
+
+        expected_text_included_in_slide = 'sample'
+        xpath = '//*[@id="carousel"]/ul/li//*[contains(@class, "text-uppercase")]'
+
+        driver.get(self.main_page_url)
+        title_elements = driver.find_elements(By.XPATH, xpath)
+
+        for title_element in title_elements:
+            title_element_text = title_element.get_attribute("textContent")
+            title_element_text_lower = title_element_text.lower()
+            self.assertIn(expected_text_included_in_slide, title_element_text_lower,
+                          f'Slides does not contain expected text for page {self.main_page_url}')
