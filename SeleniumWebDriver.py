@@ -138,3 +138,15 @@ class LostHatTest(unittest.TestCase):
 
         self.user_login(driver, user_mail, user_pass)
         self.assert_expected_text(driver,xpath,expected_text,current_url_page)
+
+    # test with assertion that don't stop on error
+    def test_loop_usage(self):
+        expected_text_included_in_string = 'star'
+        list_of_items = ['stargate', 'starship', 'cat', 'stardust', 'startreck', 'dog']
+
+        for title_element in list_of_items:
+            print(f'Text: {title_element}')
+
+        for item in list_of_items:
+            with self.subTest(item):
+                self.assertIn(expected_text_included_in_string, item, f'Item doesn\'t contain string')
