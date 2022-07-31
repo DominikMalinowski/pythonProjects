@@ -9,7 +9,7 @@ from selenium.webdriver.common.by import By
 from helpers import funcional_helpers as fh
 
 
-class LostHatTest(unittest.TestCase):
+class LostHatSmokeTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
