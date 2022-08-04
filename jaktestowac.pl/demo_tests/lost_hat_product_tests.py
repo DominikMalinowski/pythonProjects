@@ -5,9 +5,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
-from helpers import funcional_helpers as fh
-
-
 class LostHatProductTest(unittest.TestCase):
 
     # @classmethod
