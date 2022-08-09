@@ -1,10 +1,10 @@
 # import of selenium and webdriver
-import time
 import unittest
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from helpers import operational_helpers as oh
 
 class LostHatBaskettTest(unittest.TestCase):
 
@@ -28,8 +28,8 @@ class LostHatBaskettTest(unittest.TestCase):
 
         item_xpath = '//*[@alt="Mountain fox - Vector graphics"]'
         add_to_cart_button_xpath = '//*[@class="btn btn-primary add-to-cart"]'
-        confirmation_pop_up_element = '//*[@id="myModalLabel"]'
-        expected_text = 'Product successfully added to your shopping cart'
+        confirmation_modal_element = '//*[@id="myModalLabel"]'
+        expected_text = '\ue876Product successfully added to your shopping cart'
 
         driver = self.driver
         driver.get(self.art_page_url)
@@ -40,10 +40,10 @@ class LostHatBaskettTest(unittest.TestCase):
         add_to_cart_button = driver.find_element(By.XPATH, add_to_cart_button_xpath)
         add_to_cart_button.click()
 
-        time.sleep(3)
+        confirmation_modal_element = oh.wait_for_elments(driver, confirmation_modal_element)
 
-        confirmation_pop_up_header_element = driver.find_element(By.XPATH, confirmation_pop_up_element)
-        self.assertEqual(expected_text, confirmation_pop_up_header_element.text)
+        confirmation_modal_header_element = confirmation_modal_element[0]
+        self.assertEqual(expected_text, confirmation_modal_header_element.text)
 
 
 
