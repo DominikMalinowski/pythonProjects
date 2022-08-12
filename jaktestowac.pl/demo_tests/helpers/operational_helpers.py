@@ -1,20 +1,26 @@
 import time
 from selenium.webdriver.common.by import By
 
-def wait_for_elments(driver, xpath):
+
+def wait_for_elements(driver, xpath, max_seconds_to_wait=5, number_of_expected_elements=1):
     """
-    Checking every second if list of elements under specified xpath is greater than 0
+    Checking every second if list of elements under specified xpath was found
     :param driver: path for selenium driver
     :param xpath: xpath for list of elements
+    :param max_seconds_to_wait: maximum time in seconds to wait for element (default: 5)
+    :param number_of_expected_elements: specifies minimum number of  elements to be found
     """
-    for second in range(5):
+    for seconds in range(max_seconds_to_wait):
         elements = driver.find_elements(By.XPATH, xpath)
-        number_of_founded_elements = len(elements)
 
-        print(f'Waiting time: {second} s')
+        print(f'Waiting time: {seconds} s')
 
-        if number_of_founded_elements > 0:
-            print('Element found')
-            print(f'System found: {number_of_founded_elements} \n')
+        if len(elements) >= number_of_expected_elements:
             return elements
+
+        if seconds == (max_seconds_to_wait - 1):
+            print('End of wait')
+            assert len(elements) >= number_of_expected_elements, \
+                f'Expected {number_of_expected_elements} elements but found {len(elements)} ' \
+                f'for xpath {xpath} in time of {max_seconds_to_wait}s'
         time.sleep(1)
