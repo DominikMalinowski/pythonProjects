@@ -4,6 +4,8 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
 
 class LostHatsFrontPageTests(unittest.TestCase):
 
@@ -35,11 +37,11 @@ class LostHatsFrontPageTests(unittest.TestCase):
 
         with self.subTest('Element height'):
             self.assertLess(expected_min_height, actual_slider_height,
-                          f'Element height for page {self.main_page_url} is smaller than expected {expected_min_height}')
+                            f'Element height for page {self.main_page_url} is smaller than expected {expected_min_height}')
 
         with self.subTest('Element width'):
             self.assertLess(expected_min_width, actual_slider_width,
-                           f'Element width for page {self.main_page_url} is smaller than expected {expected_min_width}')
+                            f'Element width for page {self.main_page_url} is smaller than expected {expected_min_width}')
 
     def test_slider_contain_exact_number_of_slides(self):
         driver = self.driver
@@ -94,3 +96,16 @@ class LostHatsFrontPageTests(unittest.TestCase):
         for item in list_of_items:
             with self.subTest(item):
                 self.assertIn(expected_text_included_in_string, item, f'Item doesn\'t contain string')
+
+    def test_currency_for_product_on_main_page(self):
+        expected_currency = 'PLN'
+        xpath = '//*[@class="price"]'
+
+        driver = self.driver
+        driver.get(self.main_page_url)
+
+        elements_list = driver.find_elements(By.XPATH, xpath)
+
+        for element in elements_list:
+            with self.subTest(element):
+                self.assertIn(expected_currency, element.text, f'Currency isn\'t set to "PLN')

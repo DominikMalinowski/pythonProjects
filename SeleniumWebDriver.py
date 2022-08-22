@@ -1,4 +1,3 @@
-
 # import of selenium and webdriver
 import unittest
 
@@ -17,7 +16,7 @@ class MainTests(unittest.TestCase):
     def setUp(self):
         pass
 
-    #setUpClass - perform before everything
+    # setUpClass - perform before everything
     @classmethod
     def setUpClass(self):
         self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
@@ -57,28 +56,29 @@ class MainTests(unittest.TestCase):
         login_next_button_element_disabled = login_next_button_element.get_attribute('disabled')
         print(f'Disabled value {login_next_button_element_disabled}')
 
-        #getting property of attribute
+        # getting property of attribute
         login_next_button_element = driver.find_element(By.XPATH, '//*[@id="login_next"]')
         login_next_button_element_disabled_property = login_next_button_element.get_property('disabled')
         print(f'Is boolean True? {login_next_button_element_disabled_property == True}')
 
         # clicking the button
         login_reminder_element = driver.find_element(By.XPATH, '//*[@id="ident_rem"]')
-        login_reminder_element_use = login_reminder_element.click()
+        login_reminder_element.click()
 
         # closing the pop up (after 2s wait)
         time.sleep(2)
         closing_button = driver.find_element(By.XPATH, '//*[@id="shadowbox"]/div/i')
-        closing_button_use = closing_button.click()
+        closing_button.click()
 
     # tearDown - perform after every test
-    #def tearDown(self):
-        #self.driver.quit()
+    # def tearDown(self):
+    # self.driver.quit()
 
     # # tearDownClass - perform after everything else
     # @classmethod
     # def tearDownClass(self):
     #     self.driver.quit()
+
 
 class LostHatTest(unittest.TestCase):
 
@@ -112,7 +112,17 @@ class LostHatTest(unittest.TestCase):
     def assert_expected_text(self, driver, xpath, expected_text, current_url_page):
         header_element = driver.find_element(By.XPATH, xpath)
         header_element_text = header_element.text
-        self.assertEqual(expected_text,header_element_text, f'Expected text differ than actual. Page: {current_url_page}')
+        self.assertEqual(expected_text, header_element_text,
+                         f'Expected text differ than actual. Page: {current_url_page}')
+
+    #method for checking if element is visible
+    def visibility_of_element_wait(self, driver, xpath, timeout=5):
+        error_message = f'Element for xpath: {xpath}, and page {driver.current_url} has not been found in time of {timeout}s'
+        locator = (By.XPATH, xpath)
+        element_located = EC.visibility_of_element_located(locator)
+        wait = WebDriverWait(driver, timeout)
+
+        return wait.until(element_located, error_message)
 
     # test with correct credential and invoking both method from earlier
     def test_correct_login(self):
@@ -126,7 +136,7 @@ class LostHatTest(unittest.TestCase):
         driver.get(self.login_page_url)
 
         self.user_login(driver, user_mail, user_pass)
-        self.assert_expected_text(driver,xpath, expected_text, current_url_page)
+        self.assert_expected_text(driver, xpath, expected_text, current_url_page)
 
     # test with incorrect credential and invoking both method from earlier
     def test_incorrect_login(self):
@@ -140,7 +150,7 @@ class LostHatTest(unittest.TestCase):
         driver.get(self.login_page_url)
 
         self.user_login(driver, user_mail, user_pass)
-        self.assert_expected_text(driver,xpath,expected_text,current_url_page)
+        self.assert_expected_text(driver, xpath, expected_text, current_url_page)
 
     # test with assertion that don't stop on error
     def test_loop_usage(self):
@@ -170,7 +180,10 @@ class LostHatTest(unittest.TestCase):
         add_to_cart_button = driver.find_element(By.XPATH, add_to_cart_button_xpath)
         add_to_cart_button.click()
 
-        confirmation_modal_element = WebDriverWait(driver, 15).until(
-            EC.presence_of_element_located((By.XPATH, confirmation_modal_title_xpath)))
+        confirmation_modal_element = self.visibility_of_element_wait(driver, confirmation_modal_title_xpath)
+        #
+        # confirmation_modal_element = WebDriverWait(driver, 10).until(
+        #     EC.visibility_of_element_located(
+        #         (By.XPATH, confirmation_modal_title_xpath))), f'Element not found - this is my text'
 
         self.assertEqual(expected_text, confirmation_modal_element.text)

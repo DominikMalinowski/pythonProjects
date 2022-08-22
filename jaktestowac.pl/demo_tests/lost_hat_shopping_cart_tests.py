@@ -4,8 +4,6 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
 
 from helpers import operational_helpers as oh
 
@@ -29,7 +27,7 @@ class LostHatBaskettTest(unittest.TestCase):
         self.assertEqual(expected_text, header_element_text,
                          f'Expected text differ than actual. Page: {current_url_page}')
 
-    def test_product_name(self):
+    def test_adding_item_to_shopping_cart(self):
         item_xpath = '//*[@alt="Mountain fox - Vector graphics"]'
         add_to_cart_button_xpath = '//*[@class="btn btn-primary add-to-cart"]'
         confirmation_modal_title_xpath = '//*[@id="myModalLabel"]'
@@ -44,8 +42,7 @@ class LostHatBaskettTest(unittest.TestCase):
         add_to_cart_button = driver.find_element(By.XPATH, add_to_cart_button_xpath)
         add_to_cart_button.click()
 
-        confirmation_modal_element = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, confirmation_modal_title_xpath)))
+        confirmation_modal_element = oh.visibility_of_element_wait(driver, confirmation_modal_title_xpath)
 
         self.assertEqual(expected_text, confirmation_modal_element.text)
 

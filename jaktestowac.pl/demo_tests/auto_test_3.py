@@ -1,22 +1,28 @@
 # import of selenium and webdriver
-import time
 import unittest
 
-import selenium
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
+from helpers import operational_helpers_2 as oh2
+
 
 class MainTests(unittest.TestCase):
-    def setUp(self):
-        pass
+    # def setUp(self):
+    #     pass
 
     @classmethod
     def setUpClass(self):
         self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+
+    # def tearDown(self):
+    # self.driver.quit()
+
+    @classmethod
+    def tearDownClass(self):
+        self.driver.quit()
 
     def test_demo_login(self):
         driver = self.driver
@@ -58,19 +64,16 @@ class MainTests(unittest.TestCase):
         self.assertEqual(expected_title, title,
                          f'Expected title: ({expected_title}) differ from actual title ({title}) for page url {url}')
 
-    # def tearDown(self):
-    # self.driver.quit()
-
-    @classmethod
-    def tearDownClass(self):
-        self.driver.quit()
-
 
 class LoginPageTests(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
         self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+
+    @classmethod
+    def tearDownClass(self):
+        self.driver.quit()
 
     def test_page_title_text(self):
         driver = self.driver
@@ -123,15 +126,12 @@ class LoginPageTests(unittest.TestCase):
         driver = self.driver
         url = 'https://demobank.jaktestowac.pl/logowanie_etap_1.html'
         driver.get(url)
+        xpath = '//*[@id="login_id"]'
 
-        login_input_element = driver.find_element(By.XPATH, '//*[@id="login_id"]')
+        login_input_element = driver.find_element(By.XPATH, xpath)
         login_input_element.send_keys('12345678', Keys.ENTER)
-        time.sleep(3)
+        oh2.visibility_of_element_wait(driver,xpath)
 
         login_next_button_element = driver.find_element(By.XPATH, '//*[@id="login_next"]')
         login_next_button_text = login_next_button_element.text
         print(login_next_button_text)
-
-        # @classmethod
-        # def tearDownClass(self):
-        #     self.driver.quit()
