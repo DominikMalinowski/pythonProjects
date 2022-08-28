@@ -70,3 +70,4 @@ class LostHatSmokeTest(unittest.TestCase):
             f'On page {driver.current_url} there is less products for "{product_name}" ' \
             f'than expected - expected amount of products: {number_of_products_on_page}'
 
+
