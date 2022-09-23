@@ -3,23 +3,25 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException as NSEE
-
+from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
+from screenshot_listener import ScreenshotListener
 
 class BasicScreenShotTests(unittest.TestCase):
     def setUp(self):
         self.base_url = 'https://antoogle.testoneo.com/'
-        self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+        driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+        self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
 
     def tearDown(self):
-        self.driver.quit()
+        self.ef_driver.quit()
 
-    def test_opened_base_url(self):
-        self.driver.get(self.base_url)
-        self.assertEqual('The Antoogle Search Page', self.driver.title,
+    def test_demo(self):
+        self.ef_driver.get(self.base_url)
+        self.assertEqual('The Antoogle Search Page', self.ef_driver.title,
                          f'Expected title differ from actual for page url: {self.base_url}')
-        try:
-            element = self.driver.find_element(By.XPATH, '//*[@id="wont_find_me"]')
-        except NSEE:
-            self.driver.get_screenshot_as_file("screenshot.png")
-            raise NSEE
+
+    def test_demo_search(self):
+        self.ef_driver.get(self.base_url)
+        element = self.ef_driver.find_element(By.XPATH,'//*[@id="wont_find_me"]')
+        self.assertEqual('Search!', element.text,
+                         f'Expected element text differ from actual for page url: {self.base_url}')
