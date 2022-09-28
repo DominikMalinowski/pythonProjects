@@ -6,6 +6,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from helpers import funcional_helpers as fh
+from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
+
+from helpers.screenshot_listener import ScreenshotListener
 
 
 class LostHatSanityTest(unittest.TestCase):
@@ -13,7 +16,8 @@ class LostHatSanityTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+        driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+        self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
         self.art_product_type_page = self.main_page_url + '9-art'
         self.clothes_product_type_page = self.main_page_url + '3-clothes'
         self.accessories_product_type_page = self.main_page_url + '6-accessories'
@@ -21,7 +25,7 @@ class LostHatSanityTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(self):
-        self.driver.close()
+        self.ef_driver.close()
 
     def test_is_searching_bar_working(self):
         xpath = '//*[@class="ui-autocomplete-input"]'
@@ -31,7 +35,7 @@ class LostHatSanityTest(unittest.TestCase):
         number_of_correct_results = 0
         expected_number_of_correct_results = 5
 
-        driver = self.driver
+        driver = self.ef_driver
         driver.get(self.main_page_url)
 
         fh.use_search_bar(driver, xpath, product_name)

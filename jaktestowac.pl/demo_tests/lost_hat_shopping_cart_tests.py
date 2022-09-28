@@ -4,7 +4,8 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-
+from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
+from helpers.screenshot_listener import ScreenshotListener
 from helpers import operational_helpers as oh
 
 
@@ -15,11 +16,12 @@ class LostHatBaskettTest(unittest.TestCase):
     #     self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
 
     def setUp(self):
-        self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+        driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+        self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
         self.art_page_url = 'https://autodemo.testoneo.com/en/9-art'
 
     def tearDown(self):
-        self.driver.quit()
+        self.ef_driver.quit()
 
     def assert_expected_text(self, driver, xpath, expected_text, current_url_page):
         header_element = driver.find_element(By.XPATH, xpath)
@@ -33,7 +35,7 @@ class LostHatBaskettTest(unittest.TestCase):
         confirmation_modal_title_xpath = '//*[@id="myModalLabel"]'
         expected_text = '\ue876Product successfully added to your shopping cart'
 
-        driver = self.driver
+        driver = self.ef_driver
         driver.get(self.art_page_url)
 
         item = driver.find_element(By.XPATH, item_xpath)

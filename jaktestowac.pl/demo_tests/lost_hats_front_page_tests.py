@@ -5,26 +5,28 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-
+from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
+from helpers.screenshot_listener import ScreenshotListener
 
 class LostHatsFrontPageTests(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+        driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+        self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
         self.main_page_url = 'https://autodemo.testoneo.com/en/'
 
     def tearDown(self):
-        self.driver.quit()
+        self.ef_driver.quit()
 
     def test_is_slider_present(self):
-        driver = self.driver
+        driver = self.ef_driver
         driver.get(self.main_page_url)
 
         xpath = '//*[@id="carousel"]'
         slider_element = driver.find_element(By.XPATH, xpath)
 
     def test_slider_minimum_size(self):
-        driver = self.driver
+        driver = self.ef_driver
         driver.get(self.main_page_url)
 
         xpath = '//*[@id="carousel"]'
@@ -44,7 +46,7 @@ class LostHatsFrontPageTests(unittest.TestCase):
                             f'Element width for page {self.main_page_url} is smaller than expected {expected_min_width}')
 
     def test_slider_contain_exact_number_of_slides(self):
-        driver = self.driver
+        driver = self.ef_driver
         driver.get(self.main_page_url)
 
         expecxted_number_of_slides = 3
@@ -57,7 +59,7 @@ class LostHatsFrontPageTests(unittest.TestCase):
                          f'Actual number of slides is different than expected')
 
     def test_slider_contain_sample_text(self):
-        driver = self.driver
+        driver = self.ef_driver
         driver.get(self.main_page_url)
 
         expected_text_included_in_slide = 'sample'
@@ -75,7 +77,7 @@ class LostHatsFrontPageTests(unittest.TestCase):
                               f'Expected text is diffrent than actual')
 
     def test_amount_of_element_on_main_page(self):
-        driver = self.driver
+        driver = self.ef_driver
         driver.get(self.main_page_url)
 
         expected_number_of_products = 8
@@ -101,7 +103,7 @@ class LostHatsFrontPageTests(unittest.TestCase):
         expected_currency = 'PLN'
         xpath = '//*[@class="price"]'
 
-        driver = self.driver
+        driver = self.ef_driver
         driver.get(self.main_page_url)
 
         elements_list = driver.find_elements(By.XPATH, xpath)

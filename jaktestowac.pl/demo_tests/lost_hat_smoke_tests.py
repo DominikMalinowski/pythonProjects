@@ -5,7 +5,8 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-
+from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
+from helpers.screenshot_listener import ScreenshotListener
 from helpers import funcional_helpers as fh
 
 
