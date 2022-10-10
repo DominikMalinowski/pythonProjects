@@ -1,74 +1,70 @@
-# import of selenium and webdriver
-import time
-import unittest
 
+import unittest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.events import EventFiringWebDriver
 from helpers.screenshot_listener import ScreenshotListener
-from helpers import funcional_helpers as fh
+from helpers.wrappers import screenshot_decorator
 
 
-class LostHatSmokeTest(unittest.TestCase):
+class LostHatSmokeTests(unittest.TestCase):
+   @classmethod
+   def setUpClass(self):
+       self.base_url = 'https://autodemo.testoneo.com/en/'
+       self.login_url = self.base_url + 'login'
+       self.clothes_product_url = self.base_url + '3-clothes'
+       self.accessories_product_url = self.base_url + '6-accessories'
+       self.art_product_url = self.base_url + '9-art'
+       driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+       self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
 
-    driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
-    main_page_url = 'https://autodemo.testoneo.com/en/'
+   @classmethod
+   def tearDownClass(self):
+       self.ef_driver.quit()
 
-    @classmethod
-    def setUpClass(self):
-        self.art_product_type_page = self.main_page_url + '9-art'
-        self.clothes_product_type_page = self.main_page_url + '3-clothes'
-        self.accessories_product_type_page = self.main_page_url + '6-accessories'
-        self.login_page_url = self.main_page_url + 'login'
+   @screenshot_decorator
+   def test_base_page_title(self):
+       expected_title = 'Lost Hataaa'
+       self.assert_title(self.base_url, expected_title)
 
-    @classmethod
-    def tearDownClass(self):
-        self.driver.close()
+   def test_product_clothes_page_title(self):
+       expected_title = 'Clothes'
+       self.assert_title(self.clothes_product_url, expected_title)
 
-    def get_page_title(self,page):
-        self.driver.get(page)
-        return self.driver.title
+   def test_product_accessories_page_title(self):
+       expected_title = 'Accessories'
+       self.assert_title(self.accessories_product_url, expected_title)
 
-    def title_page_checking(self, page, expected_page_title):
-        actual_title = self.get_page_title(page)
-        self.assertEqual(expected_page_title, actual_title,
-                         f'For page: {self.main_page_url} actual title is difrent than expected title.')
+   def test_product_art_page_title(self):
+       expected_title = 'Art'
+       self.assert_title(self.art_product_url, expected_title)
 
-    def test_mainpage_exist(self):
-        expected_page_title = 'Lost Hat'
-        self.title_page_checking(self.main_page_url, expected_page_title)
+   def test_login_page_title(self):
+       expected_title = 'Login'
+       self.assert_title(self.login_url, expected_title)
 
-    def test_is_art_section_exist(self):
-        expected_page_title = 'Art'
-        self.title_page_checking(self.art_product_type_page, expected_page_title)
+   def get_page_title(self, url):
+       self.ef_driver.get(url)
+       return self.ef_driver.title
 
-    def test_is_cloth_section_exist(self):
-        expected_page_title = 'Clothes'
-        self.title_page_checking(self.clothes_product_type_page, expected_page_title)
+   def test_smoke_search_on_main_page(self):
+       search_phase = 'mug'
+       search_input_xpath = '//*[@name="s"]'
+       result_element_xpath = '//*[@class="product-miniature js-product-miniature"]'
+       minimum_expected_elements = 5
 
-    def test_is_accesories_section_exist(self):
-        expected_page_title = 'Accessories'
-        self.title_page_checking(self.accessories_product_type_page, expected_page_title)
+       self.ef_driver.get(self.base_url)
+       search_input_element = self.ef_driver.find_element(By.XPATH,search_input_xpath)
+       search_input_element.send_keys(search_phase)
+       search_input_element.send_keys(Keys.ENTER)
 
-    def test_is_login_section_exist(self):
-        expected_page_title = 'Login'
-        self.title_page_checking(self.login_page_url, expected_page_title)
+       result_elements = self.ef_driver.find_elements(By.XPATH, result_element_xpath)
+       self.assertGreaterEqual(len(result_elements), minimum_expected_elements,
+                               f'Actual number of elements found: {len(result_elements)}; expected was {minimum_expected_elements} or more')
 
-    def test_is_searching_bar_working(self):
-        xpath = '//*[@class="ui-autocomplete-input"]'
-        products_xpath = '//*[@class="product-miniature js-product-miniature"]'
-        product_name = 'mug'
-        expected_number_of_products = 1
-
-        driver = self.driver
-        driver.get(self.main_page_url)
-
-        fh.use_search_bar(driver, xpath, product_name)
-        number_of_products_on_page = len(driver.find_elements(By.XPATH, products_xpath))
-
-        assert number_of_products_on_page >= expected_number_of_products, \
-            f'On page {driver.current_url} there is less products for "{product_name}" ' \
-            f'than expected - expected amount of products: {number_of_products_on_page}'
-
-
+   def assert_title(self, url, expected_title):
+       actual_title = self.get_page_title(url)
+       self.assertEqual(expected_title, actual_title,
+                        f'Expected {expected_title} differ from actual title {actual_title} on page: {url}')

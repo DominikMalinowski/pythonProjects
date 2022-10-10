@@ -11,3 +11,4 @@ class ScreenshotListener(AbstractEventListener):
         screenshot_path = rf"testResults\screenshot_{time.time()}.png"
         driver.get_screenshot_as_file(screenshot_path)
         print(f'Screenshot save as {screenshot_path}')
+
