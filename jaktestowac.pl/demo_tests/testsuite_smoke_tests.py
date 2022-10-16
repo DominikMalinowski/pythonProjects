@@ -1,13 +1,13 @@
 import unittest
 from unittest import TextTestRunner, makeSuite, TestSuite
 
-from lost_hat_smoke_tests import LostHatSmokeTest
+from lost_hat_smoke_tests import LostHatSmokeTests
 
 def smoke_suite():
     test_suite = unittest.TestSuite()
 
     # adding test classes
-    test_suite.addTest(makeSuite(LostHatSmokeTest))
+    test_suite.addTest(makeSuite(LostHatSmokeTests))
     return test_suite
 
 runner = unittest.TextTestRunner(verbosity=2)

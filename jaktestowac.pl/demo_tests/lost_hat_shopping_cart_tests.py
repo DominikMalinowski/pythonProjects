@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
 from helpers.screenshot_listener import ScreenshotListener
 from helpers import operational_helpers as oh
+from helpers.wrappers import screenshot_decorator
 
 
 class LostHatBaskettTest(unittest.TestCase):
@@ -23,12 +24,13 @@ class LostHatBaskettTest(unittest.TestCase):
     def tearDown(self):
         self.ef_driver.quit()
 
+    @screenshot_decorator
     def assert_expected_text(self, driver, xpath, expected_text, current_url_page):
         header_element = driver.find_element(By.XPATH, xpath)
         header_element_text = header_element.text
         self.assertEqual(expected_text, header_element_text,
                          f'Expected text differ than actual. Page: {current_url_page}')
-
+    @screenshot_decorator
     def test_adding_item_to_shopping_cart(self):
         item_xpath = '//*[@alt="Mountain fox - Vector graphics"]'
         add_to_cart_button_xpath = '//*[@class="btn btn-primary add-to-cart"]'

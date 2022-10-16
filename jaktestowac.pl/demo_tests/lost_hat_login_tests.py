@@ -8,6 +8,7 @@ from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriv
 from helpers.screenshot_listener import ScreenshotListener
 
 from helpers import funcional_helpers as fh
+from helpers.wrappers import screenshot_decorator
 
 class LostHatLoginTest(unittest.TestCase):
 
@@ -25,7 +26,7 @@ class LostHatLoginTest(unittest.TestCase):
         header_element_text = header_element.text
         self.assertEqual(expected_text, header_element_text,
                          f'Expected text differ than actual. Page: {current_url_page}')
-
+    @screenshot_decorator
     def test_header_element_title(self):
         expected_text = 'Log in to your account'
         xpath = '//*[@id="main"]/header/h1'
@@ -36,6 +37,7 @@ class LostHatLoginTest(unittest.TestCase):
 
         self.assert_expected_text(driver, xpath, expected_text, current_url_page)
 
+    @screenshot_decorator
     def test_correct_login(self):
         expected_text = 'place holder'
         user_mail = 'mail@mail.com'
@@ -49,6 +51,7 @@ class LostHatLoginTest(unittest.TestCase):
         fh.user_login(driver, user_mail, user_pass)
         self.assert_expected_text(driver, xpath, expected_text, current_url_page)
 
+    @screenshot_decorator
     def test_incorrect_login(self):
         expected_text = 'Authentication failed.'
         user_mail = 'dupa@dupa.com'

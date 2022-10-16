@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
 from helpers.screenshot_listener import ScreenshotListener
+from helpers.wrappers import screenshot_decorator
 
 class LostHatsFrontPageTests(unittest.TestCase):
 
@@ -18,6 +19,7 @@ class LostHatsFrontPageTests(unittest.TestCase):
     def tearDown(self):
         self.ef_driver.quit()
 
+    @screenshot_decorator
     def test_is_slider_present(self):
         driver = self.ef_driver
         driver.get(self.main_page_url)
@@ -25,6 +27,7 @@ class LostHatsFrontPageTests(unittest.TestCase):
         xpath = '//*[@id="carousel"]'
         slider_element = driver.find_element(By.XPATH, xpath)
 
+    @screenshot_decorator
     def test_slider_minimum_size(self):
         driver = self.ef_driver
         driver.get(self.main_page_url)
@@ -45,6 +48,7 @@ class LostHatsFrontPageTests(unittest.TestCase):
             self.assertLess(expected_min_width, actual_slider_width,
                             f'Element width for page {self.main_page_url} is smaller than expected {expected_min_width}')
 
+    @screenshot_decorator
     def test_slider_contain_exact_number_of_slides(self):
         driver = self.ef_driver
         driver.get(self.main_page_url)
@@ -58,6 +62,7 @@ class LostHatsFrontPageTests(unittest.TestCase):
         self.assertEqual(expecxted_number_of_slides, actual_number_of_slides,
                          f'Actual number of slides is different than expected')
 
+    @screenshot_decorator
     def test_slider_contain_sample_text(self):
         driver = self.ef_driver
         driver.get(self.main_page_url)
@@ -76,6 +81,7 @@ class LostHatsFrontPageTests(unittest.TestCase):
                 self.assertIn(expected_text_included_in_slide, title_element_text_lower,
                               f'Expected text is diffrent than actual')
 
+    @screenshot_decorator
     def test_amount_of_element_on_main_page(self):
         driver = self.ef_driver
         driver.get(self.main_page_url)
@@ -88,6 +94,7 @@ class LostHatsFrontPageTests(unittest.TestCase):
         self.assertEqual(expected_number_of_products, number_of_products_on_main_page,
                          f'Number of products on main page is diffrent tah expected')
 
+    @screenshot_decorator
     def test_loop_usage(self):
         expected_text_included_in_string = 'star'
         list_of_items = ['stargate', 'starship', 'cat', 'stardust', 'startreck', 'dog']
@@ -99,6 +106,7 @@ class LostHatsFrontPageTests(unittest.TestCase):
             with self.subTest(item):
                 self.assertIn(expected_text_included_in_string, item, f'Item doesn\'t contain string')
 
+    @screenshot_decorator
     def test_currency_for_product_on_main_page(self):
         expected_currency = 'PLN'
         xpath = '//*[@class="price"]'

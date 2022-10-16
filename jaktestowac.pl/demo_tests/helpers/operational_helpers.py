@@ -28,7 +28,7 @@ def wait_for_elements(driver, xpath, max_seconds_to_wait=5, number_of_expected_e
         time.sleep(1)
 
 
-def visibility_of_element_wait(driver, xpath, timeout=5):
+def visibility_of_element_wait(driver, xpath, timeout=1):
     """
     Checking if single element specyfi by xpath is visible on the page
     :param driver: driver instance
@@ -39,6 +39,7 @@ def visibility_of_element_wait(driver, xpath, timeout=5):
     error_message = f'Element for xpath: {xpath}, and page {driver.current_url} has not been found in time of {timeout}s'
     locator = (By.XPATH, xpath)
     element_located = EC.visibility_of_element_located(locator)
+    # wait = WebDriverWait(driver, timeout) # using EventFiringWebDriver
     wait = WebDriverWait(driver.wrapped_driver, timeout)
 
     return wait.until(element_located, error_message)

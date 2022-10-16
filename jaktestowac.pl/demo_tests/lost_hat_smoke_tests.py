@@ -29,18 +29,22 @@ class LostHatSmokeTests(unittest.TestCase):
        expected_title = 'Lost Hataaa'
        self.assert_title(self.base_url, expected_title)
 
+   @screenshot_decorator
    def test_product_clothes_page_title(self):
        expected_title = 'Clothes'
        self.assert_title(self.clothes_product_url, expected_title)
 
+   @screenshot_decorator
    def test_product_accessories_page_title(self):
        expected_title = 'Accessories'
        self.assert_title(self.accessories_product_url, expected_title)
 
+   @screenshot_decorator
    def test_product_art_page_title(self):
        expected_title = 'Art'
        self.assert_title(self.art_product_url, expected_title)
 
+   @screenshot_decorator
    def test_login_page_title(self):
        expected_title = 'Login'
        self.assert_title(self.login_url, expected_title)
@@ -49,6 +53,7 @@ class LostHatSmokeTests(unittest.TestCase):
        self.ef_driver.get(url)
        return self.ef_driver.title
 
+   @screenshot_decorator
    def test_smoke_search_on_main_page(self):
        search_phase = 'mug'
        search_input_xpath = '//*[@name="s"]'

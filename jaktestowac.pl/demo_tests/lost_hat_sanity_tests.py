@@ -9,7 +9,7 @@ from helpers import funcional_helpers as fh
 from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
 
 from helpers.screenshot_listener import ScreenshotListener
-
+from helpers.wrappers import screenshot_decorator
 
 class LostHatSanityTest(unittest.TestCase):
     main_page_url = 'https://autodemo.testoneo.com/en/'
@@ -27,6 +27,7 @@ class LostHatSanityTest(unittest.TestCase):
     def tearDownClass(self):
         self.ef_driver.close()
 
+    @screenshot_decorator
     def test_is_searching_bar_working(self):
         xpath = '//*[@class="ui-autocomplete-input"]'
         products_xpath = '//*[@class="product-miniature js-product-miniature"]'

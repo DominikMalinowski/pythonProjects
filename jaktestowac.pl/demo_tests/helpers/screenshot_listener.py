@@ -8,7 +8,9 @@ class ScreenshotListener(AbstractEventListener):
         driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
 
     def on_exception(self, exception, driver):
-        screenshot_path = rf"testResults\screenshot_{time.time()}.png"
-        driver.get_screenshot_as_file(screenshot_path)
-        print(f'Screenshot save as {screenshot_path}')
+        make_screenshot(driver, 'driver')
 
+def make_screenshot(driver, producer):
+    screenshot_path = rf"testResults\{producer}_exception_{time.time()}.png"
+    driver.get_screenshot_as_file(screenshot_path)
+    print(f'Screenshot save as {screenshot_path}')
