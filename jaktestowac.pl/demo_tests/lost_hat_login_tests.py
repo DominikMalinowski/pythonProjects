@@ -1,6 +1,4 @@
 # import of selenium and webdriver
-import unittest
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -9,8 +7,9 @@ from helpers.screenshot_listener import ScreenshotListener
 
 from helpers import funcional_helpers as fh
 from helpers.wrappers import screenshot_decorator
+from helpers.base_test_class import BaseTestClass
 
-class LostHatLoginTest(unittest.TestCase):
+class LostHatLoginTest(BaseTestClass):
 
     def setUp(self):
         driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))

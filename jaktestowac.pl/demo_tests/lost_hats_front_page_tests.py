@@ -1,15 +1,13 @@
 # import of selenium and webdriver
-import unittest
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
 from helpers.screenshot_listener import ScreenshotListener
 from helpers.wrappers import screenshot_decorator
+from helpers.base_test_class import BaseTestClass
 
-class LostHatsFrontPageTests(unittest.TestCase):
+class LostHatsFrontPageTests(BaseTestClass):
 
     def setUp(self):
         driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
