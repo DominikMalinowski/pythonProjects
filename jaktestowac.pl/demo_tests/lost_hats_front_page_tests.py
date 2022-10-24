@@ -1,21 +1,10 @@
 # import of selenium and webdriver
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
-from helpers.screenshot_listener import ScreenshotListener
 from helpers.wrappers import screenshot_decorator
 from helpers.base_test_class import BaseTestClass
 
 class LostHatsFrontPageTests(BaseTestClass):
-
-    def setUp(self):
-        driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
-        self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
-        self.main_page_url = 'https://autodemo.testoneo.com/en/'
-
-    def tearDown(self):
-        self.ef_driver.quit()
 
     @screenshot_decorator
     def test_is_slider_present(self):

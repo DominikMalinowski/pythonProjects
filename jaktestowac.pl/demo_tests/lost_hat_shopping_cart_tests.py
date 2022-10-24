@@ -1,28 +1,15 @@
 # import of selenium and webdriver
-import unittest
 
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
-from helpers.screenshot_listener import ScreenshotListener
 from helpers import operational_helpers as oh
 from helpers.wrappers import screenshot_decorator
+from helpers.base_test_class import BaseTestClass
 
-
-class LostHatBaskettTest(unittest.TestCase):
+class LostHatBaskettTest(BaseTestClass):
 
     # @classmethod
     # def setUpClass(self):
     #     self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
-
-    def setUp(self):
-        driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
-        self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
-        self.art_page_url = 'https://autodemo.testoneo.com/en/9-art'
-
-    def tearDown(self):
-        self.ef_driver.quit()
 
     @screenshot_decorator
     def assert_expected_text(self, driver, xpath, expected_text, current_url_page):

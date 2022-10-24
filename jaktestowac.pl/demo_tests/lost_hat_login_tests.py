@@ -1,24 +1,11 @@
 # import of selenium and webdriver
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
-from helpers.screenshot_listener import ScreenshotListener
 
+from selenium.webdriver.common.by import By
 from helpers import funcional_helpers as fh
 from helpers.wrappers import screenshot_decorator
 from helpers.base_test_class import BaseTestClass
 
 class LostHatLoginTest(BaseTestClass):
-
-    def setUp(self):
-        driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
-        self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
-        self.main_page_url = 'https://autodemo.testoneo.com/en/'
-        self.login_page_url = 'https://autodemo.testoneo.com/en/login?back=my-account'
-
-    def tearDown(self):
-        self.ef_driver.quit()
 
     def assert_expected_text(self, driver, xpath, expected_text, current_url_page):
         header_element = driver.find_element(By.XPATH, xpath)
