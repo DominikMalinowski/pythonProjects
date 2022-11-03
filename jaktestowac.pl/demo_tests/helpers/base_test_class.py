@@ -14,6 +14,7 @@ class BaseTestClass(unittest.TestCase):
         self.login_page_url = self.main_page_url + 'login?back=my-account'
         self.art_page_url = self.main_page_url + '9-art'
         self.product_page_url = self.main_page_url + 'men/1-1-hummingbird-printed-t-shirt.html'
+        self.man_t_shirt_url = self.main_page_url + 'men/1-4-hummingbird-printed-t-shirt.html'
 
     @classmethod
     def tearDown(self):
