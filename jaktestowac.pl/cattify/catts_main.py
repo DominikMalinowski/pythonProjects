@@ -17,6 +17,7 @@ cats.append(cat2)
 print(f'cats list contains: {cats}')
 cats.append(cat3)
 print(f'cats list contains: {cats}')
+#cats.clear()
 
 print("Returning list")
 print(cats)
