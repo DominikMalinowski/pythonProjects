@@ -11,6 +11,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 import time
 
 
+
 class MainTests(unittest.TestCase):
     # setUp - perform before every test
     def setUp(self):
@@ -187,3 +188,6 @@ class LostHatTest(unittest.TestCase):
         #         (By.XPATH, confirmation_modal_title_xpath))), f'Element not found - this is my text'
 
         self.assertEqual(expected_text, confirmation_modal_element.text)
+
+
+button = driver.find_element(By.ID,'searchBtn')
