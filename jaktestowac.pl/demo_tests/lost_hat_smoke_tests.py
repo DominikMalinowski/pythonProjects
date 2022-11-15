@@ -26,7 +26,7 @@ class LostHatSmokeTests(unittest.TestCase):
 
    @screenshot_decorator
    def test_base_page_title(self):
-       expected_title = 'Lost Hataaa'
+       expected_title = 'Lost Hat'
        self.assert_title(self.base_url, expected_title)
 
    @screenshot_decorator
