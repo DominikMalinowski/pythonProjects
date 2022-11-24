@@ -76,13 +76,13 @@ print(os.path.isdir(path))
 
 ## otwieranie, odczytywanie danych z pliku
 import os
-path = 'C:\\Users\\Dominik Malinowski\\Desktop\\pythonProject\\pliki_python_2\\hello.txt'
+path = './pliki_python_2/hello.txt'
 hello_file = open(path)
 
 hello_content = hello_file.read()
 print(hello_content)
 
-path2 = 'C:\\Users\\Dominik Malinowski\\Desktop\\pythonProject\\pliki_python_2\\Lorem Ipsum.txt'
+path2 = './pliki_python_2/Lorem Ipsum.txt'
 print(open(path2).readlines())
 
 ## otwieranie w róznych trybach
