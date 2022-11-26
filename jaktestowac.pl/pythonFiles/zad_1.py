@@ -1,9 +1,8 @@
 
-path = './testFiles/file-1.txt'
+file = open("./testFiles/file-1.txt", 'w')
+file.write('That is my first file!')
+file.close()
 
-with open(path,'w') as file:
-    file.write('That is my first file!')
-
-with open(path,'r') as file:
-    print(file.read())
-
+file = open("./testFiles/file-1.txt")
+print(file.read())
+file.close()
