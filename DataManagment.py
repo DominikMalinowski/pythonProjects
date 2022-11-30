@@ -90,3 +90,7 @@ path = 'C:\\Users\\Dominik Malinowski\\Desktop\\pythonProject\\pliki_python_2\\h
 file_read = open(path, 'r')
 file_write = open(path, 'w')
 file_add = open(path, 'a')
+
+##
+os.rename
+os.remove
