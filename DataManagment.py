@@ -12,7 +12,7 @@ os.chdir('<sciezka>')
 
 ## tworzenie nowego katalogu
 import os
-os.makedirs('C:\\Users\\Dominik Malinowski\\Desktop\\pythonProject\\newborn')
+os.makedirs('C:\\Users\\Dominik Malinowski\\Desktop\\pythonProject\\newborn', exist_ok=True)
 
 ## zwrocenie bezwzglednej sciezki argumentu
 import os
@@ -91,6 +91,27 @@ file_read = open(path, 'r')
 file_write = open(path, 'w')
 file_add = open(path, 'a')
 
-##
-os.rename
-os.remove
+## zmiana nazwy plikó
+import os
+old_file = os.path.join('testFiles', 'fileToRename.txt')
+new_file = os.path.join('testFiles', 'renamedFile.txt')
+os.rename(old_file, new_file)
+
+## bezpieczne usuwanie plików
+import os
+
+file_path = os.path.join('testFiles', 'fileToRemove.txt')
+
+if os.path.exists(old_file):
+    os.remove(file_path)
+else:
+    print('File to remove does not exist')
+
+## kopiowanie plików
+import shutil
+import os
+
+file_path = os.path.join('testFiles', 'fileToCopy.txt')
+new_file_path = os.path.join('testFiles', 'copiedFile.txt')
+
+shutil.copy(file_path, new_file_path)
