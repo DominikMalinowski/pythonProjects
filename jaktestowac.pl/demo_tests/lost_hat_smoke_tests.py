@@ -7,18 +7,21 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.events import EventFiringWebDriver
 from helpers.screenshot_listener import ScreenshotListener
 from helpers.wrappers import screenshot_decorator
-
+import config_reader as cr
 
 class LostHatSmokeTests(unittest.TestCase):
    @classmethod
    def setUpClass(self):
-       self.base_url = 'https://autodemo.testoneo.com/en/'
+       config = cr.load()
+       self.base_url = config["base_url"]
+       driver = webdriver.Chrome(service=Service(executable_path=config["chromedriver_path"]))
+
+       self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
        self.login_url = self.base_url + 'login'
        self.clothes_product_url = self.base_url + '3-clothes'
        self.accessories_product_url = self.base_url + '6-accessories'
        self.art_product_url = self.base_url + '9-art'
-       driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
-       self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
+
 
    @classmethod
    def tearDownClass(self):

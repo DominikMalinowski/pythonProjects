@@ -11,17 +11,21 @@ from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriv
 from helpers.screenshot_listener import ScreenshotListener
 from helpers.wrappers import screenshot_decorator
 
+import config_reader as cr
+
 class LostHatSanityTest(unittest.TestCase):
-    main_page_url = 'https://autodemo.testoneo.com/en/'
 
     @classmethod
     def setUpClass(self):
-        driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+        config = cr.load()
+        self.base_url = config["base_url"]
+        driver = webdriver.Chrome(service=Service(executable_path=config["chromedriver_path"]))
+
         self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
-        self.art_product_type_page = self.main_page_url + '9-art'
-        self.clothes_product_type_page = self.main_page_url + '3-clothes'
-        self.accessories_product_type_page = self.main_page_url + '6-accessories'
-        self.login_page_url = self.main_page_url + 'login'
+        self.art_product_type_page = self.base_url + '9-art'
+        self.clothes_product_type_page = self.base_url + '3-clothes'
+        self.accessories_product_type_page = self.base_url + '6-accessories'
+        self.login_page_url = self.base_url + 'login'
 
     @classmethod
     def tearDownClass(self):
@@ -37,7 +41,7 @@ class LostHatSanityTest(unittest.TestCase):
         expected_number_of_correct_results = 5
 
         driver = self.ef_driver
-        driver.get(self.main_page_url)
+        driver.get(self.base_url)
 
         fh.use_search_bar(driver, xpath, product_name)
         products_list = driver.find_elements(By.XPATH, products_xpath)

@@ -9,7 +9,7 @@ class LostHatsFrontPageTests(BaseTestClass):
     @screenshot_decorator
     def test_is_slider_present(self):
         driver = self.ef_driver
-        driver.get(self.main_page_url)
+        driver.get(self.base_url)
 
         xpath = '//*[@id="carousel"]'
         slider_element = driver.find_element(By.XPATH, xpath)
@@ -17,7 +17,7 @@ class LostHatsFrontPageTests(BaseTestClass):
     @screenshot_decorator
     def test_slider_minimum_size(self):
         driver = self.ef_driver
-        driver.get(self.main_page_url)
+        driver.get(self.base_url)
 
         xpath = '//*[@id="carousel"]'
         expected_min_height = 300
@@ -29,16 +29,16 @@ class LostHatsFrontPageTests(BaseTestClass):
 
         with self.subTest('Element height'):
             self.assertLess(expected_min_height, actual_slider_height,
-                            f'Element height for page {self.main_page_url} is smaller than expected {expected_min_height}')
+                            f'Element height for page {self.base_url} is smaller than expected {expected_min_height}')
 
         with self.subTest('Element width'):
             self.assertLess(expected_min_width, actual_slider_width,
-                            f'Element width for page {self.main_page_url} is smaller than expected {expected_min_width}')
+                            f'Element width for page {self.base_url} is smaller than expected {expected_min_width}')
 
     @screenshot_decorator
     def test_slider_contain_exact_number_of_slides(self):
         driver = self.ef_driver
-        driver.get(self.main_page_url)
+        driver.get(self.base_url)
 
         expecxted_number_of_slides = 3
         xpath = '//*[@id="carousel"]/ul/li'
@@ -52,12 +52,12 @@ class LostHatsFrontPageTests(BaseTestClass):
     @screenshot_decorator
     def test_slider_contain_sample_text(self):
         driver = self.ef_driver
-        driver.get(self.main_page_url)
+        driver.get(self.base_url)
 
         expected_text_included_in_slide = 'sample'
         xpath = '//*[@id="carousel"]/ul/li//*[contains(@class, "text-uppercase")]'
 
-        driver.get(self.main_page_url)
+        driver.get(self.base_url)
         title_elements = driver.find_elements(By.XPATH, xpath)
 
         for title_element in title_elements:
@@ -71,7 +71,7 @@ class LostHatsFrontPageTests(BaseTestClass):
     @screenshot_decorator
     def test_amount_of_element_on_main_page(self):
         driver = self.ef_driver
-        driver.get(self.main_page_url)
+        driver.get(self.base_url)
 
         expected_number_of_products = 8
         xpath = '//*[@class="product-miniature js-product-miniature"]'
@@ -99,7 +99,7 @@ class LostHatsFrontPageTests(BaseTestClass):
         xpath = '//*[@class="price"]'
 
         driver = self.ef_driver
-        driver.get(self.main_page_url)
+        driver.get(self.base_url)
 
         elements_list = driver.find_elements(By.XPATH, xpath)
 
