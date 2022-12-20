@@ -27,4 +27,4 @@ class BaseTestClass(unittest.TestCase):
 
     @classmethod
     def tearDown(self):
-        self.ef_driver.quit()
+        self.conf_driver.quit()

@@ -21,7 +21,7 @@ class LostHatSanityTest(unittest.TestCase):
         self.base_url = config["base_url"]
         driver = webdriver.Chrome(service=Service(executable_path=config["chromedriver_path"]))
 
-        self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
+        self.conf_driver = EventFiringWebDriver(driver, ScreenshotListener())
         self.art_product_type_page = self.base_url + '9-art'
         self.clothes_product_type_page = self.base_url + '3-clothes'
         self.accessories_product_type_page = self.base_url + '6-accessories'
@@ -29,7 +29,7 @@ class LostHatSanityTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(self):
-        self.ef_driver.close()
+        self.conf_driver.close()
 
     @screenshot_decorator
     def test_is_searching_bar_working(self):
@@ -40,7 +40,7 @@ class LostHatSanityTest(unittest.TestCase):
         number_of_correct_results = 0
         expected_number_of_correct_results = 5
 
-        driver = self.ef_driver
+        driver = self.conf_driver
         driver.get(self.base_url)
 
         fh.use_search_bar(driver, xpath, product_name)
