@@ -24,7 +24,7 @@ class LostHatProductTest(BaseTestClass):
         xpath = '//*[@id="main"]//*[@class="h1"]'
         current_url_page = self.product_page_url
 
-        driver = self.ef_driver
+        driver = self.conf_driver
         driver.get(self.product_page_url)
 
         self.assert_expected_text(driver, xpath, expected_text, current_url_page)
@@ -35,7 +35,7 @@ class LostHatProductTest(BaseTestClass):
         xpath = '//*[@class="current-price"]//*[@itemprop="price"]'
         current_page_url = self.product_page_url
 
-        driver = self.ef_driver
+        driver = self.conf_driver
         driver.get(self.product_page_url)
 
         self.assert_expected_text(driver, xpath, expected_text, current_page_url)

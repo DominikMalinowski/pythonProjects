@@ -24,7 +24,7 @@ class LostHatBaskettTest(BaseTestClass):
         confirmation_modal_title_xpath = '//*[@id="myModalLabel"]'
         expected_text = '\ue876Product successfully added to your shopping cart'
 
-        driver = self.ef_driver
+        driver = self.conf_driver
         driver.get(self.art_page_url)
 
         item = driver.find_element(By.XPATH, item_xpath)

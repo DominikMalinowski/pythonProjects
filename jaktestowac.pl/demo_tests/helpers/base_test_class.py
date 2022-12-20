@@ -12,7 +12,10 @@ class BaseTestClass(unittest.TestCase):
         config = cr.load()
 
         driver = webdriver.Chrome(service=Service(executable_path=config['chromedriver_path']))
-        self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
+        if config["event_firing_driver"] == True:
+            self.conf_driver = EventFiringWebDriver(driver, ScreenshotListener())
+        else:
+            self.conf_driver = driver
 
         # self.base_url = 'https://autodemo.testoneo.com/en/'
         self.base_url = config['base_url']

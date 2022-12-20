@@ -4,5 +4,6 @@
   "correct_mail" : "mail@mail.com",
   "correct_pass" : "passwordnigga",
   "incorrect_mail" : "dupa@dupa.com",
-  "incorrect_pass" : "israel_is_a_country"
+  "incorrect_pass" : "israel_is_a_country",
+  "event_firing_driver": false
 }

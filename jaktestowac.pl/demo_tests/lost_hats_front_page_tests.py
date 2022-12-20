@@ -8,7 +8,7 @@ class LostHatsFrontPageTests(BaseTestClass):
 
     @screenshot_decorator
     def test_is_slider_present(self):
-        driver = self.ef_driver
+        driver = self.conf_driver
         driver.get(self.base_url)
 
         xpath = '//*[@id="carousel"]'
@@ -16,7 +16,7 @@ class LostHatsFrontPageTests(BaseTestClass):
 
     @screenshot_decorator
     def test_slider_minimum_size(self):
-        driver = self.ef_driver
+        driver = self.conf_driver
         driver.get(self.base_url)
 
         xpath = '//*[@id="carousel"]'
@@ -37,7 +37,7 @@ class LostHatsFrontPageTests(BaseTestClass):
 
     @screenshot_decorator
     def test_slider_contain_exact_number_of_slides(self):
-        driver = self.ef_driver
+        driver = self.conf_driver
         driver.get(self.base_url)
 
         expecxted_number_of_slides = 3
@@ -51,7 +51,7 @@ class LostHatsFrontPageTests(BaseTestClass):
 
     @screenshot_decorator
     def test_slider_contain_sample_text(self):
-        driver = self.ef_driver
+        driver = self.conf_driver
         driver.get(self.base_url)
 
         expected_text_included_in_slide = 'sample'
@@ -70,7 +70,7 @@ class LostHatsFrontPageTests(BaseTestClass):
 
     @screenshot_decorator
     def test_amount_of_element_on_main_page(self):
-        driver = self.ef_driver
+        driver = self.conf_driver
         driver.get(self.base_url)
 
         expected_number_of_products = 8
@@ -98,7 +98,7 @@ class LostHatsFrontPageTests(BaseTestClass):
         expected_currency = 'PLN'
         xpath = '//*[@class="price"]'
 
-        driver = self.ef_driver
+        driver = self.conf_driver
         driver.get(self.base_url)
 
         elements_list = driver.find_elements(By.XPATH, xpath)

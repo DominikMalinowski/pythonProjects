@@ -20,7 +20,7 @@ class LostHatLoginTest(BaseTestClass):
         xpath = '//*[@id="main"]/header/h1'
         current_url_page = self.base_url
 
-        driver = self.ef_driver
+        driver = self.conf_driver
         driver.get(self.login_page_url)
 
         self.assert_expected_text(driver, xpath, expected_text, current_url_page)
@@ -35,7 +35,7 @@ class LostHatLoginTest(BaseTestClass):
         xpath = '//*[@class="account"]/*[@class="hidden-sm-down"]'
         current_url_page = self.login_page_url
 
-        driver = self.ef_driver
+        driver = self.conf_driver
         driver.get(self.login_page_url)
 
         fh.user_login(driver, user_mail, user_pass)
@@ -51,7 +51,7 @@ class LostHatLoginTest(BaseTestClass):
         xpath = '//*[@class="alert alert-danger"]'
         current_url_page = self.login_page_url
 
-        driver = self.ef_driver
+        driver = self.conf_driver
         driver.get(self.login_page_url)
 
         fh.user_login(driver, user_mail, user_pass)

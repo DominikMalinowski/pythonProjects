@@ -13,7 +13,7 @@ class LostHatProductDetailsTests(BaseTestClass):
         expected_product_default_size = 'M'
         size_select_xpath = '//*[@id="group_1"]'
 
-        driver = self.ef_driver
+        driver = self.conf_driver
 
         driver.get(self.man_t_shirt_url)
         product_size_select_element = driver.find_element(By.XPATH, size_select_xpath)
@@ -28,7 +28,7 @@ class LostHatProductDetailsTests(BaseTestClass):
         expected_product_changed_size = 'L'
         size_select_xpath = '//*[@id="group_1"]'
 
-        driver = self.ef_driver
+        driver = self.conf_driver
         driver.get(self.man_t_shirt_url)
 
         product_size_select_element = driver.find_element(By.XPATH, size_select_xpath)
