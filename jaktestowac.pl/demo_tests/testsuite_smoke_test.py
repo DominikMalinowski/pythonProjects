@@ -1,7 +1,7 @@
 import unittest
 from unittest import TextTestRunner, makeSuite, TestSuite
 
-from lost_hat_smoke_tests import LostHatSmokeTests
+from lost_hat_smoke_test import LostHatSmokeTests
 
 def smoke_suite():
     test_suite = unittest.TestSuite()

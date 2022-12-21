@@ -1,8 +1,8 @@
 import unittest
 from unittest import TextTestRunner, makeSuite, TestSuite
 
-from lost_hat_login_tests import LostHatLoginTest
-from lost_hat_sanity_tests import LostHatSanityTest
+from lost_hat_login_test import LostHatLoginTest
+from lost_hat_sanity_test import LostHatSanityTest
 
 def sanity_suite():
     test_suite = unittest.TestSuite()

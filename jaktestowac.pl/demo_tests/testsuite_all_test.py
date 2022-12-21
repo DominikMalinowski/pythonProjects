@@ -2,11 +2,11 @@
 import unittest
 from unittest import TextTestRunner, makeSuite, TestSuite
 
-from lost_hat_smoke_tests import LostHatSmokeTests
-from lost_hat_product_tests import LostHatProductTest
-from lost_hat_login_tests import LostHatLoginTest
-from lost_hats_front_page_tests import LostHatsFrontPageTests
-from lost_hat_product_details_tests import LostHatProductDetailsTests
+from lost_hat_smoke_test import LostHatSmokeTests
+from lost_hat_product_test import LostHatProductTest
+from lost_hat_login_test import LostHatLoginTest
+from lost_hats_front_page_test import LostHatsFrontPageTests
+from lost_hat_product_details_test import LostHatProductDetailsTests
 
 def full_suite():
     test_suite = unittest.TestSuite()
