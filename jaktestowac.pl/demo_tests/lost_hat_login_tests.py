@@ -56,4 +56,3 @@ class LostHatLoginTest(BaseTestClass):
 
         fh.user_login(driver, user_mail, user_pass)
         self.assert_expected_text(driver, xpath, expected_text, current_url_page)
-        print("test")

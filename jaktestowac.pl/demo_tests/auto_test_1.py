@@ -23,3 +23,5 @@ driver.close()
 
 #closing the broser
 driver.quit()
+
+print("test")
