@@ -29,7 +29,7 @@ def wait_for_elements(driver, xpath, max_seconds_to_wait=5, number_of_expected_e
         time.sleep(1)
 
 
-def visibility_of_element_wait(driver, xpath, timeout=3) -> WebElement :
+def visibility_of_element_wait(driver, xpath, timeout=7) -> WebElement :
     """
     Checking if single element specyfi by xpath is visible on the page
     :param driver: webdriver or event firing webdriver instance

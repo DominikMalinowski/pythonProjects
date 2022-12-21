@@ -1,4 +1,5 @@
 # import of selenium and webdriver
+import time
 
 from selenium.webdriver.common.by import By
 from helpers import operational_helpers as oh
@@ -37,6 +38,72 @@ class LostHatBaskettTest(BaseTestClass):
 
         self.assertEqual(expected_text, confirmation_modal_element.text)
 
-        # confirmation_modal_elements = oh.wait_for_elements(driver, confirmation_modal_element_xpath)
-        # confirmation_modal_element = confirmation_modal_elements[0]
-        # self.assertEqual(expected_text, confirmation_modal_element.text)
+    # @screenshot_decorator
+    # def test_adding_multiple_item_to_shopping_cart(self):
+    #     item_xpath = '//*[@alt="Mountain fox - Vector graphics"]'
+    #     add_to_cart_button_xpath = '//*[@class="btn btn-primary add-to-cart"]'
+    #     confirmation_modal_title_xpath = '//*[@id="myModalLabel"]'
+    #     continue_shopping_button_xpath = '//*[@class="btn btn-secondary"]'
+    #
+    #     driver = self.conf_driver
+    #     driver.get(self.art_page_url)
+    #
+    #     item = driver.find_element(By.XPATH, item_xpath)
+    #     item.click()
+    #
+    #     # adding first product
+    #     add_to_cart_button = driver.find_element(By.XPATH, add_to_cart_button_xpath)
+    #     add_to_cart_button.click()
+    #
+    #     oh.visibility_of_element_wait(driver, confirmation_modal_title_xpath)
+    #
+    #     continue_shopping_button_element = driver.find_element(By.XPATH, continue_shopping_button_xpath)
+    #     continue_shopping_button_element.click()
+    #
+    #     # adding second product
+    #     add_to_cart_button = driver.find_element(By.XPATH, add_to_cart_button_xpath)
+    #     add_to_cart_button.click()
+    #     oh.visibility_of_element_wait(driver, confirmation_modal_title_xpath)
+    #
+    #     continue_shopping_button_element = driver.find_element(By.XPATH, continue_shopping_button_xpath)
+    #     continue_shopping_button_element.click()
+    #
+    #     expected_cart_item_count = '(2)'
+    #     cart_xpath = '//*[@class="cart-products-count"]'
+    #     cart_element = oh.visibility_of_element_wait(driver, cart_xpath)
+    #     cart_element_count = cart_element.text
+    #     self.assertEqual(cart_element_count, expected_cart_item_count)
+
+
+
+    @screenshot_decorator
+    def test_adding_multiple_item_to_shopping_cart(self):
+        add_to_cart_button_xpath = '//*[@class="btn btn-primary add-to-cart"]'
+        item_xpath = '//*[@alt="Mountain fox - Vector graphics"]'
+        confirmation_modal_title_xpath = '//*[@id="myModalLabel"]'
+        continue_shopping_button_xpath = '//*[@class="btn btn-secondary"]'
+        number_of_item_added = 4
+
+        driver = self.conf_driver
+        driver.get(self.art_page_url)
+
+        item = driver.find_element(By.XPATH, item_xpath)
+        item.click()
+
+        for i in range (1, number_of_item_added+1):
+
+            add_to_cart_button = driver.find_element(By.XPATH, add_to_cart_button_xpath)
+            add_to_cart_button.click()
+            oh.visibility_of_element_wait(driver, confirmation_modal_title_xpath)
+
+            continue_shopping_button_element = driver.find_element(By.XPATH, continue_shopping_button_xpath)
+            continue_shopping_button_element.click()
+
+            expected_cart_item_count = f'({i})'
+            cart_xpath = '//*[@class="cart-products-count"]'
+            cart_element = oh.visibility_of_element_wait(driver, cart_xpath)
+            cart_element_count = cart_element.text
+            self.assertEqual(cart_element_count, expected_cart_item_count)
+            print(f'Added {i} elements to cart')
+
+
