@@ -8,11 +8,11 @@ Test Project for getting to know Git with support software.
 ## Source:
 [![alt text](https://tygodniknie.pl/wp-content/uploads/2020/10/sc-759x500.png)](https://iledopapiezowej.pl/)
 
-##Technologies 
+## Technologies 
 - Me
 - Me++
 - Another Me +
 - Windows v.10
 
-##External Platform
+## External Platform
 [GitHub](https://github.com/) - repository hosting
