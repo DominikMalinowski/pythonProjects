@@ -13,3 +13,6 @@ Test Project for getting to know Git with support software.
 - Me++
 - Another Me +
 - Windows v.10
+
+##External Platform
+[GitHub](https://github.com/) - repository hosting
