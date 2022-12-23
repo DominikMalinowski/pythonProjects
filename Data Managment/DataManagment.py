@@ -1,23 +1,10 @@
 
-## modyfikacja katalogu roboczego
-import os
-os.chdir('<sciezka>')
 
-## tworzenie nowego katalogu
-import os
-os.makedirs('C:\\Users\\Dominik Malinowski\\Desktop\\pythonProject\\newborn', exist_ok=True)
 
-## zwrocenie bezwzglednej sciezki argumentu
-import os
-print(os.path.abspath('newborn'))
 
 ## zwrocenie True jezeli argument jest bezwzgledna sciezka
 import os
 print(os.path.isabs('newborn'))
-
-## zwrocenie wzglednej sciezki argumentu
-import os
-print(os.path.relpath('C:\\Users\\Dominik Malinowski\\Desktop\\pythonProject\\newborn', 'Desktop'))
 
 ## zwrocenie nazwy katalogu i nazwy bazowej (rozdziela je ostatni ukośnik)
 import os
