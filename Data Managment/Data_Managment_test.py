@@ -7,6 +7,6 @@ class Data_Managment_Test():
         if os.path.isabs(DM2.new_folder_abspath) == True:
             print('ok')
         else: 
-            print('test has failed')
+            print('test has failed!')
 
 
