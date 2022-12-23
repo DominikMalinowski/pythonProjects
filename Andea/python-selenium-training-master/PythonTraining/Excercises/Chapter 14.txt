@@ -1,0 +1,7 @@
+Write a method that:
+1. Takes JSON file name and json content as arguments
+2. Creates a new JSON file in Solutions directory using given data
+
+Write a second method that:
+1. Takes JSON file name (or path) as an argument
+2. Print content of given JSON file

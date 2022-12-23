@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<b2mml:ProductionSchedule xmlns:b2mml="http://www.wbf.org/xml/B2MML-V0401">
+    <b2mml:ID schemeID="1.1">130016</b2mml:ID>
+    <b2mml:Location>
+        <b2mml:EquipmentID>IT70</b2mml:EquipmentID>
+        <b2mml:EquipmentElementLevel>Site</b2mml:EquipmentElementLevel>
+    </b2mml:Location>
+    <b2mml:PublishedDate>2017-11-23T17:50:45</b2mml:PublishedDate>
+    <b2mml:StartTime>2017-11-23T00:00:00</b2mml:StartTime>
+    <b2mml:EndTime>2017-11-23T00:00:00</b2mml:EndTime>
+    <b2mml:ProductionRequest>
+        <b2mml:ID>130011</b2mml:ID>
+        <b2mml:ProductProductionRuleID>6AAAX</b2mml:ProductProductionRuleID>
+        <b2mml:StartTime>2017-11-23T00:00:00</b2mml:StartTime>
+        <b2mml:EndTime>2017-11-23T00:00:00</b2mml:EndTime>
+        <b2mml:Priority>0</b2mml:Priority>
+        <b2mml:OrderType>ZMRL</b2mml:OrderType>
+        <b2mml:SegmentRequirement>
+            <b2mml:ID>100000000001365253</b2mml:ID>
+            <b2mml:EarliestStartTime>2017-11-23T00:00:00</b2mml:EarliestStartTime>
+            <b2mml:LatestEndTime>2017-11-23T00:00:00</b2mml:LatestEndTime>
+            <b2mml:ProfileID />
+            <b2mml:ProductionVersion />
+            <b2mml:EquipmentRequirement>
+                <b2mml:EquipmentID>MAZRH020</b2mml:EquipmentID>
+            </b2mml:EquipmentRequirement>
+            <b2mml:MaterialProducedRequirement>
+                <b2mml:MaterialClassID>Double Stick</b2mml:MaterialClassID>
+                <b2mml:MaterialDefinitionID>6AAAX</b2mml:MaterialDefinitionID>
+                <b2mml:Description>ZRH MARLBORO [.] SCION I AFTER</b2mml:Description>
+                <b2mml:Location>
+                    <b2mml:EquipmentID>MAZRH020</b2mml:EquipmentID>
+                    <b2mml:EquipmentElementLevel>Unit</b2mml:EquipmentElementLevel>
+                </b2mml:Location>
+                <b2mml:Quantity>
+                    <b2mml:QuantityString>1.0000000000000000E+03</b2mml:QuantityString>
+                    <b2mml:DataType>String</b2mml:DataType>
+                    <b2mml:UnitOfMeasure>TH</b2mml:UnitOfMeasure>
+                </b2mml:Quantity>
+                <b2mml:Any>
+                    <b2mml:MaterialVersion>6AAAX/002.02</b2mml:MaterialVersion>
+                    <b2mml:MaterialBatchNumber>41-2423022</b2mml:MaterialBatchNumber>
+                </b2mml:Any>
+            </b2mml:MaterialProducedRequirement>
+            <b2mml:SegmentRequirement>
+                <b2mml:ID>Combiner</b2mml:ID>
+                <b2mml:ProductSegmentID>6AAAX</b2mml:ProductSegmentID>
+                <b2mml:Description>Combiner</b2mml:Description>
+                <b2mml:EarliestStartTime>2017-11-23T00:00:00</b2mml:EarliestStartTime>
+                <b2mml:LatestEndTime>2017-11-23T00:00:00</b2mml:LatestEndTime>
+                <b2mml:EquipmentRequirement>
+                    <b2mml:EquipmentClassID>Combiner</b2mml:EquipmentClassID>
+                </b2mml:EquipmentRequirement>
+				
+				
+					
+                <b2mml:MaterialProducedRequirement>
+                    <b2mml:MaterialClassID>DS</b2mml:MaterialClassID>
+                    <b2mml:MaterialDefinitionID>6AAAX</b2mml:MaterialDefinitionID>
+                    <b2mml:Description>ZRH MARLBORO [.] SCION I AFTER</b2mml:Description>
+                    <b2mml:Quantity>
+                        <b2mml:QuantityString>1.0000000000000000E+03</b2mml:QuantityString>
+                        <b2mml:DataType>NUM</b2mml:DataType>
+                        <b2mml:UnitOfMeasure>TH</b2mml:UnitOfMeasure>
+                    </b2mml:Quantity>
+                    <b2mml:MaterialProducedRequirementProperty>
+                        <b2mml:ID>ZPPPI_BRAND_SHORT_DESCRIPTION</b2mml:ID>
+                        <b2mml:Description />
+                        <b2mml:Value>
+                            <b2mml:ValueString />
+                            <b2mml:DataType>CHAR</b2mml:DataType>
+                            <b2mml:UnitOfMeasure />
+                        </b2mml:Value>
+                    </b2mml:MaterialProducedRequirementProperty>
+                    <b2mml:MaterialProducedRequirementProperty>
+                        <b2mml:ID>ZPPPI_BRAND_VALIDITY_DATE</b2mml:ID>
+                        <b2mml:Description />
+                        <b2mml:Value>
+                            <b2mml:ValueString>20150818</b2mml:ValueString>
+                            <b2mml:DataType>DATE</b2mml:DataType>
+                            <b2mml:UnitOfMeasure />
+                        </b2mml:Value>
+                    </b2mml:MaterialProducedRequirementProperty>
+                    <b2mml:MaterialProducedRequirementProperty>
+                        <b2mml:ID>ZPPPI_PROCESS_ORDER_TYPE</b2mml:ID>
+                        <b2mml:Description />
+                        <b2mml:Value>
+                            <b2mml:ValueString />
+                            <b2mml:DataType>CHAR</b2mml:DataType>
+                            <b2mml:UnitOfMeasure />
+                        </b2mml:Value>
+                    </b2mml:MaterialProducedRequirementProperty>
+					
+			   
+			   	<b2mml:MaterialProducedRequirementProperty>
+                  <b2mml:ID>PPPI_STORAGE_LOCATION</b2mml:ID>
+                  <b2mml:Description>Storage location</b2mml:Description>
+                  <b2mml:Value>
+                     <b2mml:ValueString>NX07</b2mml:ValueString>
+                     <b2mml:DataType>CHAR</b2mml:DataType>
+                     <b2mml:UnitOfMeasure />
+                     <b2mml:Any />
+                  </b2mml:Value>
+                  <b2mml:Any>
+                     <DataSource>ERP</DataSource>
+                     <b2mml:DataSource>ERP</b2mml:DataSource>
+                  </b2mml:Any>
+               </b2mml:MaterialProducedRequirementProperty>
+			   
+			   
+                    <b2mml:MaterialProducedRequirementProperty>
+                        <b2mml:ID>ZPPPI_PRODUCTION_VERSION</b2mml:ID>
+                        <b2mml:Description />
+                        <b2mml:Value>
+                            <b2mml:ValueString>KR0L7</b2mml:ValueString>
+                            <b2mml:DataType>CHAR</b2mml:DataType>
+                            <b2mml:UnitOfMeasure />
+                        </b2mml:Value>
+                    </b2mml:MaterialProducedRequirementProperty>
+                    <b2mml:MaterialProducedRequirementProperty>
+                        <b2mml:ID>ZPPPI_RRP_TOBROD</b2mml:ID>
+                        <b2mml:Description />
+                        <b2mml:Value>
+                            <b2mml:ValueString>6AAAX</b2mml:ValueString>
+                            <b2mml:DataType>CHAR</b2mml:DataType>
+                            <b2mml:UnitOfMeasure />
+                        </b2mml:Value>
+                    </b2mml:MaterialProducedRequirementProperty>
+                    <b2mml:MaterialProducedRequirementProperty>
+                        <b2mml:ID>ZPPPI_LEN_CIG</b2mml:ID>
+                        <b2mml:Description>Cigarette Total Length</b2mml:Description>
+                        <b2mml:Value>
+                            <b2mml:ValueString>        4.5000000000000000E+01</b2mml:ValueString>
+                            <b2mml:DataType>CHAR</b2mml:DataType>
+                            <b2mml:UnitOfMeasure>MM</b2mml:UnitOfMeasure>
+                        </b2mml:Value>
+                        <b2mml:Any>
+                            <b2mml:Workcenter>PQA_001</b2mml:Workcenter>
+                            <b2mml:NIC>N10029</b2mml:NIC>
+                            <b2mml:CriMax>        6.9999999999999996E-01</b2mml:CriMax>
+                            <b2mml:CriMin>        6.9999999999999996E-01</b2mml:CriMin>
+                            <b2mml:TolMax>        0.0000000000000000E+00</b2mml:TolMax>
+                            <b2mml:TolMin>        0.0000000000000000E+00</b2mml:TolMin>
+                            <b2mml:RejMax />
+                            <b2mml:RejMin />
+                            <b2mml:ParameterType>0</b2mml:ParameterType>
+                            <b2mml:Usage>0</b2mml:Usage>
+                            <b2mml:Obs1>0</b2mml:Obs1>
+                            <b2mml:Obs2>0</b2mml:Obs2>
+                        </b2mml:Any>
+                    </b2mml:MaterialProducedRequirementProperty>
+                    <b2mml:MaterialProducedRequirementProperty>
+                        <b2mml:ID>ZPPPI_LEN_FIL_PLUG_CIG</b2mml:ID>
+                        <b2mml:Description>Cigarette Filter Plug Length</b2mml:Description>
+                        <b2mml:Value>
+                            <b2mml:ValueString>        7.0000000000000000E+00</b2mml:ValueString>
+                            <b2mml:DataType>CHAR</b2mml:DataType>
+                            <b2mml:UnitOfMeasure>MM</b2mml:UnitOfMeasure>
+                        </b2mml:Value>
+                        <b2mml:Any>
+                            <b2mml:Workcenter>PQA_001</b2mml:Workcenter>
+                            <b2mml:NIC>N10030</b2mml:NIC>
+                            <b2mml:CriMax>        4.0000000000000002E-01</b2mml:CriMax>
+                            <b2mml:CriMin>        5.9999999999999998E-01</b2mml:CriMin>
+                            <b2mml:TolMax>        0.0000000000000000E+00</b2mml:TolMax>
+                            <b2mml:TolMin>        0.0000000000000000E+00</b2mml:TolMin>
+                            <b2mml:RejMax />
+                            <b2mml:RejMin />
+                            <b2mml:ParameterType>0</b2mml:ParameterType>
+                            <b2mml:Usage>0</b2mml:Usage>
+                            <b2mml:Obs1>0</b2mml:Obs1>
+                            <b2mml:Obs2>0</b2mml:Obs2>
+                        </b2mml:Any>
+                    </b2mml:MaterialProducedRequirementProperty>
+                    <b2mml:MaterialProducedRequirementProperty>
+                        <b2mml:ID>ZPPPI_LEN_TIP_CIG</b2mml:ID>
+                        <b2mml:Description>Tipping Length</b2mml:Description>
+                        <b2mml:Value>
+                            <b2mml:ValueString>        2.0000000000000000E+01</b2mml:ValueString>
+                            <b2mml:DataType>CHAR</b2mml:DataType>
+                            <b2mml:UnitOfMeasure>MM</b2mml:UnitOfMeasure>
+                        </b2mml:Value>
+                        <b2mml:Any>
+                            <b2mml:Workcenter>PQA_001</b2mml:Workcenter>
+                            <b2mml:NIC>N10032</b2mml:NIC>
+                            <b2mml:CriMax>        0.0000000000000000E+00</b2mml:CriMax>
+                            <b2mml:CriMin>        0.0000000000000000E+00</b2mml:CriMin>
+                            <b2mml:TolMax>        0.0000000000000000E+00</b2mml:TolMax>
+                            <b2mml:TolMin>        0.0000000000000000E+00</b2mml:TolMin>
+                            <b2mml:RejMax />
+                            <b2mml:RejMin />
+                            <b2mml:ParameterType>0</b2mml:ParameterType>
+                            <b2mml:Usage>0</b2mml:Usage>
+                            <b2mml:Obs1>0</b2mml:Obs1>
+                            <b2mml:Obs2>0</b2mml:Obs2>
+                        </b2mml:Any>
+                    </b2mml:MaterialProducedRequirementProperty>
+                    <b2mml:MaterialProducedRequirementProperty>
+                        <b2mml:ID>ZPPPI_CIG_WEIGHT_TARGET</b2mml:ID>
+                        <b2mml:Description>Cig. Total weight / cigarette</b2mml:Description>
+                        <b2mml:Value>
+                            <b2mml:ValueString>        7.9200000000000000E+02</b2mml:ValueString>
+                            <b2mml:DataType>CHAR</b2mml:DataType>
+                            <b2mml:UnitOfMeasure>MG</b2mml:UnitOfMeasure>
+                        </b2mml:Value>
+                        <b2mml:Any>
+                            <b2mml:Workcenter>PQA_001</b2mml:Workcenter>
+                            <b2mml:NIC>N10049</b2mml:NIC>
+                            <b2mml:CriMax>        5.5000000000000000E+01</b2mml:CriMax>
+                            <b2mml:CriMin>        5.5000000000000000E+01</b2mml:CriMin>
+                            <b2mml:TolMax>        0.0000000000000000E+00</b2mml:TolMax>
+                            <b2mml:TolMin>        0.0000000000000000E+00</b2mml:TolMin>
+                            <b2mml:RejMax />
+                            <b2mml:RejMin />
+                            <b2mml:ParameterType>0</b2mml:ParameterType>
+                            <b2mml:Usage>0</b2mml:Usage>
+                            <b2mml:Obs1>0</b2mml:Obs1>
+                            <b2mml:Obs2>0</b2mml:Obs2>
+                        </b2mml:Any>
+                    </b2mml:MaterialProducedRequirementProperty>
+                    <b2mml:MaterialProducedRequirementProperty>
+                        <b2mml:ID>ZPPPI_CIG_DIAMETER_CLASS</b2mml:ID>
+                        <b2mml:Description />
+                        <b2mml:Value>
+                            <b2mml:ValueString />
+                            <b2mml:DataType>CHAR</b2mml:DataType>
+                            <b2mml:UnitOfMeasure />
+                        </b2mml:Value>
+                    </b2mml:MaterialProducedRequirementProperty>
+                    <b2mml:MaterialProducedRequirementProperty>
+                        <b2mml:ID>ZPPPI_MARKET_LENGTH</b2mml:ID>
+                        <b2mml:Description />
+                        <b2mml:Value>
+                            <b2mml:ValueString />
+                            <b2mml:DataType>CHAR</b2mml:DataType>
+                            <b2mml:UnitOfMeasure />
+                        </b2mml:Value>
+                    </b2mml:MaterialProducedRequirementProperty>
+                    <b2mml:MaterialProducedRequirementProperty>
+                        <b2mml:ID>ZPPPI_TOB_WEIGHT_CIG_MAK</b2mml:ID>
+                        <b2mml:Description>Cigarette Tobacco weight / cig</b2mml:Description>
+                        <b2mml:Value>
+                            <b2mml:ValueString>        3.0551999999999998E+02</b2mml:ValueString>
+                            <b2mml:DataType>CHAR</b2mml:DataType>
+                            <b2mml:UnitOfMeasure>MG</b2mml:UnitOfMeasure>
+                        </b2mml:Value>
+                        <b2mml:Any>
+                            <b2mml:Workcenter>PQA_001</b2mml:Workcenter>
+                            <b2mml:NIC>N10044</b2mml:NIC>
+                            <b2mml:CriMax>        0.0000000000000000E+00</b2mml:CriMax>
+                            <b2mml:CriMin>        0.0000000000000000E+00</b2mml:CriMin>
+                            <b2mml:TolMax>        0.0000000000000000E+00</b2mml:TolMax>
+                            <b2mml:TolMin>        0.0000000000000000E+00</b2mml:TolMin>
+                            <b2mml:RejMax />
+                            <b2mml:RejMin />
+                            <b2mml:ParameterType>0</b2mml:ParameterType>
+                            <b2mml:Usage>0</b2mml:Usage>
+                            <b2mml:Obs1>0</b2mml:Obs1>
+                            <b2mml:Obs2>0</b2mml:Obs2>
+                        </b2mml:Any>
+                    </b2mml:MaterialProducedRequirementProperty>
+                </b2mml:MaterialProducedRequirement>
+                <b2mml:MaterialConsumedRequirement>
+                    <b2mml:MaterialClassID>CMB</b2mml:MaterialClassID>
+                    <b2mml:MaterialDefinitionID>24.A028</b2mml:MaterialDefinitionID>
+                    <b2mml:MaterialBatchNumber />
+                    <b2mml:Description>NC017D SCION I [.]/125.00 AFTERCUT Fitz</b2mml:Description>
+                    <b2mml:Quantity>
+                        <b2mml:QuantityString>105.5</b2mml:QuantityString>
+                        <b2mml:DataType>float</b2mml:DataType>
+                        <b2mml:UnitOfMeasure>TH</b2mml:UnitOfMeasure>
+                    </b2mml:Quantity>
+                    <b2mml:Any>
+                        <b2mml:Assembly>6AAAX</b2mml:Assembly>
+                        <b2mml:Material_group>N012411</b2mml:Material_group>
+                        <b2mml:SortString />
+                        <b2mml:ItemText1>NC017D SCION I [.]/125.00 AFTERCUT Fitz</b2mml:ItemText1>
+                        <b2mml:IndicatorFollowUp />
+                        <b2mml:FollowUpOriginalMaterial />
+						<b2mml:SAP_Issue_Plant>IT70</b2mml:SAP_Issue_Plant> 
+						<b2mml:SAP_Issue_Location>LF07</b2mml:SAP_Issue_Location> 
+                        <b2mml:RequestedBatch />
+                    </b2mml:Any>
+                </b2mml:MaterialConsumedRequirement>
+                <b2mml:MaterialConsumedRequirement>
+                    <b2mml:MaterialClassID>CMB</b2mml:MaterialClassID>
+                    <b2mml:MaterialDefinitionID>30.A869</b2mml:MaterialDefinitionID>
+                    <b2mml:MaterialBatchNumber />
+                    <b2mml:Description>WOO [.] STD VER 24.50/6000/120.0 SP_2636</b2mml:Description>
+                    <b2mml:Quantity>
+                        <b2mml:QuantityString>6.682</b2mml:QuantityString>
+                        <b2mml:DataType>float</b2mml:DataType>
+                        <b2mml:UnitOfMeasure>PC</b2mml:UnitOfMeasure>
+                    </b2mml:Quantity>
+                    <b2mml:Any>
+                        <b2mml:Assembly>6AAAX</b2mml:Assembly>
+                        <b2mml:Material_group>N0130</b2mml:Material_group>
+                        <b2mml:SortString />
+                        <b2mml:ItemText1>WOO [.] STD VER 24.50/6000/120.0 SP_2636</b2mml:ItemText1>
+                        <b2mml:IndicatorFollowUp />
+						<b2mml:FollowUpOriginalMaterial />
+						<b2mml:SAP_Issue_Plant>IT70</b2mml:SAP_Issue_Plant> 
+						<b2mml:SAP_Issue_Location>LF07</b2mml:SAP_Issue_Location>        
+                        <b2mml:RequestedBatch />
+                    </b2mml:Any>
+                </b2mml:MaterialConsumedRequirement>
+                <b2mml:MaterialConsumedRequirement>
+                    <b2mml:MaterialClassID>CMB</b2mml:MaterialClassID>
+                    <b2mml:MaterialDefinitionID>32.F5PR</b2mml:MaterialDefinitionID>
+                    <b2mml:MaterialBatchNumber />
+                    <b2mml:Description>40.00/3400/120.0 DTP.A2AA STD Blancophan</b2mml:Description>
+                    <b2mml:Quantity>
+                        <b2mml:QuantityString>3.881</b2mml:QuantityString>
+                        <b2mml:DataType>float</b2mml:DataType>
+                        <b2mml:UnitOfMeasure>PC</b2mml:UnitOfMeasure>
+                    </b2mml:Quantity>
+                    <b2mml:Any>
+                        <b2mml:Assembly>6AAAX</b2mml:Assembly>
+                        <b2mml:Material_group>N0132</b2mml:Material_group>
+                        <b2mml:SortString />
+                        <b2mml:ItemText1>40.00/3400/120.0 DTP.A2AA STD Blancophan</b2mml:ItemText1>
+                        <b2mml:IndicatorFollowUp />
+						<b2mml:FollowUpOriginalMaterial />
+						<b2mml:SAP_Issue_Plant>IT70</b2mml:SAP_Issue_Plant> 
+						<b2mml:SAP_Issue_Location>LF07</b2mml:SAP_Issue_Location> 
+                        <b2mml:RequestedBatch />
+                    </b2mml:Any>
+                </b2mml:MaterialConsumedRequirement>
+                <b2mml:MaterialConsumedRequirement>
+                    <b2mml:MaterialClassID>CMB</b2mml:MaterialClassID>
+                    <b2mml:MaterialDefinitionID>34.B382</b2mml:MaterialDefinitionID>
+                    <b2mml:MaterialBatchNumber />
+                    <b2mml:Description>SIN SLI NPO</b2mml:Description>
+                    <b2mml:Quantity>
+                        <b2mml:QuantityString>52.75</b2mml:QuantityString>
+                        <b2mml:DataType>float</b2mml:DataType>
+                        <b2mml:UnitOfMeasure>TH</b2mml:UnitOfMeasure>
+                    </b2mml:Quantity>
+                    <b2mml:Any>
+                        <b2mml:Assembly>6AAAX</b2mml:Assembly>
+                        <b2mml:Material_group>N013411</b2mml:Material_group>
+                        <b2mml:SortString />
+                        <b2mml:ItemText1>SIN SLI NPO</b2mml:ItemText1>
+                        <b2mml:IndicatorFollowUp />
+                        <b2mml:FollowUpOriginalMaterial />
+						<b2mml:SAP_Issue_Plant>IT70</b2mml:SAP_Issue_Plant> 
+						<b2mml:SAP_Issue_Location>LF07</b2mml:SAP_Issue_Location> 
+                        <b2mml:RequestedBatch />
+                    </b2mml:Any>
+                </b2mml:MaterialConsumedRequirement>
+                <b2mml:MaterialConsumedRequirement>
+                    <b2mml:MaterialClassID>CMB1</b2mml:MaterialClassID>
+                    <b2mml:MaterialDefinitionID>33.A787</b2mml:MaterialDefinitionID>
+                    <b2mml:MaterialBatchNumber />
+                    <b2mml:Description>HAT SLI NPO</b2mml:Description>
+                    <b2mml:Quantity>
+                        <b2mml:QuantityString>87.917</b2mml:QuantityString>
+                        <b2mml:DataType>float</b2mml:DataType>
+                        <b2mml:UnitOfMeasure>TH</b2mml:UnitOfMeasure>
+                    </b2mml:Quantity>
+                    <b2mml:Any>
+                        <b2mml:Assembly>6AAAX</b2mml:Assembly>
+                        <b2mml:Material_group>N013311</b2mml:Material_group>
+                        <b2mml:SortString />
+                        <b2mml:ItemText1>HAT SLI NPO</b2mml:ItemText1>
+                        <b2mml:IndicatorFollowUp />
+						<b2mml:SAP_Issue_Plant>IT70</b2mml:SAP_Issue_Plant> 
+						<b2mml:SAP_Issue_Location>LF07</b2mml:SAP_Issue_Location> 
+                        <b2mml:FollowUpOriginalMaterial />
+                        <b2mml:RequestedBatch />
+                    </b2mml:Any>
+                </b2mml:MaterialConsumedRequirement>
+                <b2mml:MaterialConsumedRequirement>
+                    <b2mml:MaterialClassID>CMB1</b2mml:MaterialClassID>
+                    <b2mml:MaterialDefinitionID>80.A127</b2mml:MaterialDefinitionID>
+                    <b2mml:MaterialBatchNumber />
+                    <b2mml:Description>TOBACOLL 233-3005 LIQ EVA</b2mml:Description>
+                    <b2mml:Quantity>
+                        <b2mml:QuantityString>3.671</b2mml:QuantityString>
+                        <b2mml:DataType>float</b2mml:DataType>
+                        <b2mml:UnitOfMeasure>KG</b2mml:UnitOfMeasure>
+                    </b2mml:Quantity>
+                    <b2mml:Any>
+                        <b2mml:Assembly>6AAAX</b2mml:Assembly>
+                        <b2mml:Material_group>N0180</b2mml:Material_group>
+                        <b2mml:SortString />
+                        <b2mml:ItemText1>TOBACOLL 233-3005 LIQ EVA</b2mml:ItemText1>
+                        <b2mml:IndicatorFollowUp />
+						<b2mml:SAP_Issue_Plant>IT70</b2mml:SAP_Issue_Plant> 
+						<b2mml:SAP_Issue_Location>LF07</b2mml:SAP_Issue_Location> 
+                        <b2mml:FollowUpOriginalMaterial />
+                        <b2mml:RequestedBatch />
+                    </b2mml:Any>
+                </b2mml:MaterialConsumedRequirement>
+                <b2mml:MaterialConsumedRequirement>
+                    <b2mml:MaterialClassID>CMB1</b2mml:MaterialClassID>
+                    <b2mml:MaterialDefinitionID>89.9150</b2mml:MaterialDefinitionID>
+                    <b2mml:MaterialBatchNumber />
+                    <b2mml:Description>FLT [.] [.]/[.]/[.] NGP Trays 90 - Doubl</b2mml:Description>
+                    <b2mml:Quantity>
+                        <b2mml:QuantityString>211.0</b2mml:QuantityString>
+                        <b2mml:DataType>float</b2mml:DataType>
+                        <b2mml:UnitOfMeasure>PC</b2mml:UnitOfMeasure>
+                    </b2mml:Quantity>
+                    <b2mml:Any>
+                        <b2mml:Assembly>6AAAX</b2mml:Assembly>
+                        <b2mml:Material_group>N0289</b2mml:Material_group>
+                        <b2mml:SortString />
+                        <b2mml:ItemText1>FLT [.] [.]/[.]/[.] NGP Trays 90 - Doubl</b2mml:ItemText1>
+                        <b2mml:IndicatorFollowUp />
+                        <b2mml:FollowUpOriginalMaterial />
+						<b2mml:SAP_Issue_Plant>IT70</b2mml:SAP_Issue_Plant> 
+						<b2mml:SAP_Issue_Location>LF07</b2mml:SAP_Issue_Location> 
+                        <b2mml:RequestedBatch />
+                    </b2mml:Any>
+                </b2mml:MaterialConsumedRequirement>
+                <b2mml:MaterialConsumedRequirement>
+                    <b2mml:MaterialClassID>CMB2</b2mml:MaterialClassID>
+                    <b2mml:MaterialDefinitionID>33.A653</b2mml:MaterialDefinitionID>
+                    <b2mml:MaterialBatchNumber />
+                    <b2mml:Description>SA3 SLI NPO</b2mml:Description>
+                    <b2mml:Quantity>
+                        <b2mml:QuantityString>131.875</b2mml:QuantityString>
+                        <b2mml:DataType>float</b2mml:DataType>
+                        <b2mml:UnitOfMeasure>TH</b2mml:UnitOfMeasure>
+                    </b2mml:Quantity>
+                    <b2mml:Any>
+                        <b2mml:Assembly>6AAAX</b2mml:Assembly>
+                        <b2mml:Material_group>N013311</b2mml:Material_group>
+                        <b2mml:SortString />
+                        <b2mml:ItemText1>SA3 SLI NPO</b2mml:ItemText1>
+                        <b2mml:IndicatorFollowUp />
+                        <b2mml:FollowUpOriginalMaterial />
+						<b2mml:SAP_Issue_Plant>IT70</b2mml:SAP_Issue_Plant> 
+						<b2mml:SAP_Issue_Location>LF07</b2mml:SAP_Issue_Location> 
+                        <b2mml:RequestedBatch />
+                    </b2mml:Any>
+                </b2mml:MaterialConsumedRequirement>
+                <b2mml:MaterialConsumedRequirement>
+                    <b2mml:MaterialClassID>CMB2</b2mml:MaterialClassID>
+                    <b2mml:MaterialDefinitionID>80.A131</b2mml:MaterialDefinitionID>
+                    <b2mml:MaterialBatchNumber />
+                    <b2mml:Description>TOBACOLL 1520 A 1 New LIQ EVA</b2mml:Description>
+                    <b2mml:Quantity>
+                        <b2mml:QuantityString>5.993</b2mml:QuantityString>
+                        <b2mml:DataType>float</b2mml:DataType>
+                        <b2mml:UnitOfMeasure>KG</b2mml:UnitOfMeasure>
+                    </b2mml:Quantity>
+                    <b2mml:Any>
+                        <b2mml:Assembly>6AAAX</b2mml:Assembly>
+                        <b2mml:Material_group>N0180</b2mml:Material_group>
+                        <b2mml:SortString />
+                        <b2mml:ItemText1>TOBACOLL 1520 A 1 New LIQ EVA</b2mml:ItemText1>
+                        <b2mml:IndicatorFollowUp />
+                        <b2mml:FollowUpOriginalMaterial />
+						<b2mml:SAP_Issue_Plant>IT70</b2mml:SAP_Issue_Plant> 
+						<b2mml:SAP_Issue_Location>LF07</b2mml:SAP_Issue_Location> 
+                        <b2mml:RequestedBatch />
+                    </b2mml:Any>
+                </b2mml:MaterialConsumedRequirement>
+                <b2mml:MaterialConsumedRequirement>
+                    <b2mml:MaterialClassID>CMB2</b2mml:MaterialClassID>
+                    <b2mml:MaterialDefinitionID>89.7382</b2mml:MaterialDefinitionID>
+                    <b2mml:MaterialBatchNumber />
+                    <b2mml:Description>OTH Bags 108 Ment PE</b2mml:Description>
+                    <b2mml:Quantity>
+                        <b2mml:QuantityString>211.0</b2mml:QuantityString>
+                        <b2mml:DataType>float</b2mml:DataType>
+                        <b2mml:UnitOfMeasure>PC</b2mml:UnitOfMeasure>
+                    </b2mml:Quantity>
+                    <b2mml:Any>
+                        <b2mml:Assembly>6AAAX</b2mml:Assembly>
+                        <b2mml:Material_group>N0289</b2mml:Material_group>
+                        <b2mml:SortString />
+                        <b2mml:ItemText1>OTH Bags 108 Ment PE</b2mml:ItemText1>
+                        <b2mml:IndicatorFollowUp />
+                        <b2mml:FollowUpOriginalMaterial />
+						<b2mml:SAP_Issue_Plant>IT70</b2mml:SAP_Issue_Plant> 
+						<b2mml:SAP_Issue_Location>LF07</b2mml:SAP_Issue_Location> 
+                        <b2mml:RequestedBatch />
+                    </b2mml:Any>
+                </b2mml:MaterialConsumedRequirement>
+                <b2mml:MaterialConsumedRequirement>
+                    <b2mml:MaterialClassID>CMB3</b2mml:MaterialClassID>
+                    <b2mml:MaterialDefinitionID>89.9025</b2mml:MaterialDefinitionID>
+                    <b2mml:MaterialBatchNumber />
+                    <b2mml:Description>OTH 800274205_White Tray labels</b2mml:Description>
+                    <b2mml:Quantity>
+                        <b2mml:QuantityString>211.0</b2mml:QuantityString>
+                        <b2mml:DataType>float</b2mml:DataType>
+                        <b2mml:UnitOfMeasure>PC</b2mml:UnitOfMeasure>
+                    </b2mml:Quantity>
+                    <b2mml:Any>
+                        <b2mml:Assembly>6AAAX</b2mml:Assembly>
+                        <b2mml:Material_group>N0289</b2mml:Material_group>
+                        <b2mml:SortString />
+                        <b2mml:ItemText1>OTH 800274205_White Tray labels</b2mml:ItemText1>
+                        <b2mml:IndicatorFollowUp />
+						<b2mml:SAP_Issue_Plant>IT70</b2mml:SAP_Issue_Plant> 
+						<b2mml:SAP_Issue_Location>LF07</b2mml:SAP_Issue_Location> 
+                        <b2mml:FollowUpOriginalMaterial />
+                        <b2mml:RequestedBatch />
+                    </b2mml:Any>
+                </b2mml:MaterialConsumedRequirement>
+                <b2mml:MaterialConsumedRequirement>
+                    <b2mml:MaterialClassID>REJ</b2mml:MaterialClassID>
+                    <b2mml:MaterialDefinitionID>24.A028RJ</b2mml:MaterialDefinitionID>
+                    <b2mml:MaterialBatchNumber />
+                    <b2mml:Description>NC017D SCION I [.]/125.00 AFTERCUT Fitz</b2mml:Description>
+                    <b2mml:Quantity>
+                        <b2mml:QuantityString>0.01</b2mml:QuantityString>
+                        <b2mml:DataType>float</b2mml:DataType>
+                        <b2mml:UnitOfMeasure>TH</b2mml:UnitOfMeasure>
+                    </b2mml:Quantity>
+                    <b2mml:Any>
+                        <b2mml:Assembly>6AAAX</b2mml:Assembly>
+                        <b2mml:Material_group>N012416</b2mml:Material_group>
+                        <b2mml:SortString />
+                        <b2mml:ItemText1>NC017D SCION I [.]/125.00 AFTERCUT Fitz</b2mml:ItemText1>
+                        <b2mml:IndicatorFollowUp />
+                        <b2mml:FollowUpOriginalMaterial />
+						<b2mml:SAP_Issue_Plant>IT70</b2mml:SAP_Issue_Plant> 
+						<b2mml:SAP_Issue_Location>LF07</b2mml:SAP_Issue_Location> 
+                        <b2mml:RequestedBatch />
+                    </b2mml:Any>
+                </b2mml:MaterialConsumedRequirement>
+                <b2mml:MaterialConsumedRequirement>
+                    <b2mml:MaterialClassID>REJ</b2mml:MaterialClassID>
+                    <b2mml:MaterialDefinitionID>6AAAXRJ</b2mml:MaterialDefinitionID>
+                    <b2mml:MaterialBatchNumber />
+                    <b2mml:Description>ZRH MARLBORO [.] SCION I AFTERCUT Fitz C</b2mml:Description>
+                    <b2mml:Quantity>
+                        <b2mml:QuantityString>0.01</b2mml:QuantityString>
+                        <b2mml:DataType>float</b2mml:DataType>
+                        <b2mml:UnitOfMeasure>TH</b2mml:UnitOfMeasure>
+                    </b2mml:Quantity>
+                    <b2mml:Any>
+                        <b2mml:Assembly>6AAAX</b2mml:Assembly>
+                        <b2mml:Material_group>P1706</b2mml:Material_group>
+                        <b2mml:SortString />
+                        <b2mml:ItemText1>ZRH MARLBORO [.] SCION I AFTERCUT Fitz C</b2mml:ItemText1>
+                        <b2mml:IndicatorFollowUp />
+                        <b2mml:FollowUpOriginalMaterial />
+						<b2mml:SAP_Issue_Plant>IT70</b2mml:SAP_Issue_Plant> 
+						<b2mml:SAP_Issue_Location>LF07</b2mml:SAP_Issue_Location> 
+                        <b2mml:RequestedBatch />
+                    </b2mml:Any>
+                </b2mml:MaterialConsumedRequirement>
+            </b2mml:SegmentRequirement>
+        </b2mml:SegmentRequirement>
+    </b2mml:ProductionRequest>
+    <b2mml:Any>
+        <b2mml:Notes>
+            <b2mml:STP_remarks>
+			STP_REMARK
+            </b2mml:STP_remarks>
+            <b2mml:BRAND_GENERAL_REMARKS />
+            <b2mml:BRAND_REASON_CHANGE />
+            <b2mml:PRODUCT_GENERAL_REMARKS />
+            <b2mml:PRODUCT_REASON_CHANGE />
+        </b2mml:Notes>
+        <b2mml:Date>
+            <b2mml:PublishedDate>20161123175045</b2mml:PublishedDate>
+        </b2mml:Date>
+    </b2mml:Any>
+</b2mml:ProductionSchedule>

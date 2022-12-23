@@ -1,0 +1,12 @@
+Create app to send money with inputs:
+ - recipient's name - string without digits
+ - choice of payment method - 1. account number, 2. phone number - possible to choose a number
+ - account number or phone number depending on previous choice
+ - title - max 50 characters - can be empty
+ - currency - $, PLN, EURO - possible to choose a number
+ - transfer amount - max value depending on currency choice - 1000PLN, 300 EURO, 400$
+ - date of the transfer - with input format m.d.y
+ - confirmation of payment - YES/NO
+After confirming the transfer display the message "Money have been sent. Would you like to receive an email confirmation":
+  - if Yes - Enter email, and display "Confirmation has been sent"
+  - if No - finish the program

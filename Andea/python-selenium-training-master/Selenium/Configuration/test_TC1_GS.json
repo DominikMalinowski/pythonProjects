@@ -1,0 +1,12 @@
+{
+    "GS_URL_HOME_PAGE": "http://krkpmival35/apriso/start/",
+    "GS_LOGIN": "admin",
+    "GS_PASSWORD": "9",
+    "GS_MAIN_SEARCH_INPUT": "[ 4 ] Create Container",
+    "GS_LOCATION": "NTM-IN",
+    "GS_BARCODE_I": "I200001000123020030000782",
+    "GS_BARCODE_H": "H000231230611180000CP-2425467",
+    "GS_BARCODE_Q": "Q00002000620066501",
+    "GS_BATCH": "12345",
+    "GS_PRINTER": "test"
+}

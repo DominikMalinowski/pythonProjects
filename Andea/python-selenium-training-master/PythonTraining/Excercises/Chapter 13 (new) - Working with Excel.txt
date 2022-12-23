@@ -1,0 +1,6 @@
+1. Create a program create an 100x100 multiplication table in an Excel spreadsheet "Table". First row and column should be freezed and font should be BOLD and size=15.
+
+2. Based on first point create program that:
+ - rand two cells position in multiplication table and adds values.
+ - results are saved in next Sheet "Results"
+ - user can enter number of results that want to get
