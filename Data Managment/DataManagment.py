@@ -12,32 +12,6 @@ print(os.path.dirname('C:\\Users\\Dominik Malinowski\\Desktop\\pythonProject\\ne
 
 print(os.path.basename('C:\\Users\\Dominik Malinowski\\Desktop\\pythonProject\\newborn'))
 
-## zapisanie do zmiannej lokalizacji podzielonej ostatnim ukośnikiem
-import os
-path =('C:\\Users\\Dominik Malinowski\\Desktop\\pythonProject\\newborn')
-print(os.path.split(path))
-
-## zapisanie do zmiannej lokazliacji podzielonej ukośnikami
-import os
-path =('C:\\Users\\Dominik Malinowski\\Desktop\\pythonProject\\newborn')
-print(path.split(os.path.sep))
-
-## wyswietlenie zawartosci katalogu
-import os
-path =('C:\\Users\\Dominik Malinowski\\Desktop\\pythonProject\\newborn')
-print(os.listdir(path))
-
-## pobranie wagi pliku (bajty)
-import os
-path =('C:\\Users\\Dominik Malinowski\\Desktop\\pythonProject\\newborn\\reg.ex.png')
-print(os.path.getsize(path))
-
-## wyswietlenie wagi całego folderu
-path = 'E:\\PyCharm\\PyCharm Community Edition 2021.2.3'
-totalSize = 0
-for file in os.listdir(path):
-    totalSize = totalSize + os.path.getsize(os.path.join(path, file))
-print(totalSize)
 
 ## sprawdzenie czy sciezka istnieje
 import os

@@ -3,10 +3,10 @@ import os
 new_folder_name = 'data_managment_text_file'
 different_path = 'xxxxxxxxxxxxx' #<-place for destination directory  
 
-#change your directory 
+# change your directory 
 # os.chdir('different_path')
 
-#getting current working directory
+# getting current working directory
 main_directory = os.getcwd()
 
 # genearate path for new file in cwd 
@@ -20,4 +20,12 @@ new_folder_relpath = os.path.relpath(new_folder_path)
 
 new_folder_dirname = os.path.dirname(new_folder_path)
 new_folder_basename = os.path.basename(new_folder_path)
+
+# displaying directory content and it size 
+content = os.listdir(new_folder_path)
+print(f"\nDirectory containes items: [item size]")
+for item in content: 
+    item_path = os.path.join(new_folder_path, item)
+    size = os.path.getsize(item_path)
+    print(item + " : " + str(size) + " kb")
 
