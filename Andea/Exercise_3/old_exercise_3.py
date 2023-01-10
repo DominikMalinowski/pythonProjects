@@ -6,17 +6,18 @@ The passwords should be random, generating a new password every time the user as
 Include your generator in the separate function.
 """
 
-def password_generator():
-    import string
-    import secrets
+import random
+import string
 
+
+def generate_password():
     print('Welcome to password generator')
 
     while True:
         print('Pleas provide how long password you want (minimum value is 8)')
         password_length = input()
 
-        # validation of password length being a number
+        # validation of password length being number
         try:
             password_length = int(password_length)
         except ValueError:
@@ -29,13 +30,13 @@ def password_generator():
             continue
         else:
             break
-    
-    # password generation   
-    database = string.ascii_letters + string.digits + string.punctuation
-    password = ''  
 
-    password += ''.join(secrets.choice(database) for i in range(password_length))
+    # setting up base for loop
+    base = string.ascii_letters + string.digits + string.punctuation
+
+    # password generation
+    password = ''.join(random.choice(base) for _ in range(password_length))
     print('Your password is: ' + password)
 
 
-password_generator()
+generate_password()
