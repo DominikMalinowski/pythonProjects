@@ -6,13 +6,17 @@ Then tell them whether they guessed too low, too high, or exactly right.
 
 import random
 def guess_number():
+    # setting the range of value to pick from and number of tries
     generated_value = random.randint(1,9)
+    number_of_tries = 3 
 
     print('There is hidden number - try to guess it')
-    for i in range(1,4):
-        print(f"You have {4-i} changes left")
+    # loop for repeating guess for the user
+    for i in range(0,int(number_of_tries)):
+        print(f"You have {int(number_of_tries)-i} changes left")
         guess = int(input())
 
+        # validation if user guesss number right 
         if guess == generated_value:
             print('You guess it right')
             break

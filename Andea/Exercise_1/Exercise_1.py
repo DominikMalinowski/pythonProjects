@@ -12,6 +12,10 @@ If check divides evenly into num, tell that to the user. If not, print a differe
 
 
 def number_validation():
+    """ 
+    Reusable function to verify if provided input is number
+    :return: provided value if it number 
+    """
     while True:
         user_number = input()
         try:
