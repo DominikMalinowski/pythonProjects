@@ -7,7 +7,6 @@ You should also remove white spaces from the imput.
 sample_List = [' Red ; Green ; White ; Black ; Pink ; Yellow ']
 elements_to_remove = [1,4,5]
 erase_list = []
-remodeled_item_list = []
 
 input_list = input()
 new_list = [remodeled_item_list.strip() for item in input_list]
