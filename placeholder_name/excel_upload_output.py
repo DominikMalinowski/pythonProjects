@@ -46,4 +46,24 @@ for rowOfCellObjects in active_sheet['A1':'C3']:
     print('Koniec')
 
 
+wb2 = openpyxl.Workbook()
+print(wb2.get_sheet_names())
 
+ac_sheet = wb2.active
+
+# setting sheet name 
+ac_sheet.title = 'Bacon'
+print(wb2.get_sheet_names())
+
+
+# create new sheet 
+wb2.create_sheet(index = 0, title = 'sheet_add')
+wb2.create_sheet(index = 2, title = 'sheet_add2')
+
+# remove sheet 
+wb2.remove_sheet(wb2.get_sheet_by_name('sheet_add'))
+
+ac_sheet['A2'] = 'nigger'
+
+# saving excel doc 
+wb2.save('placeholder.xlsx')
