@@ -8,11 +8,11 @@ def calculation(workbook):
     """
     wb = openpyxl.load_workbook(workbook)
     active_sheet = wb.active
-    results = {}
+    # results = {}
     for i in range(2, active_sheet.max_row + 1):
-        print(i)
-        azimuth_name = ('Azimuth for row ' + str(i))
-        distance_name = ('Distance for row ' + str(i))
+        print(f'Calculating distance and azimuth for row number: {i}')
+        # azimuth_name = ('Azimuth for row ' + str(i))
+        # distance_name = ('Distance for row ' + str(i))
         
         X1 = float((active_sheet.cell(row = i, column = 1).value))
         X2 = float((active_sheet.cell(row = i, column = 3).value))
@@ -50,15 +50,20 @@ def calculation(workbook):
 
         azimuth = float(round(azimuth,6))
         
+        active_sheet.cell(row = 1, column = 5).value = 'Distance'
         active_sheet.cell(row = i, column = 5).value = distance
+
+        active_sheet.cell(row = 1, column = 6).value = 'Azimuth'
         active_sheet.cell(row = i, column = 6).value = azimuth
 
         wb.save('excel_test_file_output.xlsx')
 
-        results.update({azimuth_name:float(round(azimuth,6))})
-        results.update({distance_name: distance})
+        # results.update({azimuth_name:float(round(azimuth,6))})
+        # results.update({distance_name: distance})
    
-    return(results)
+    print('Calculation complete')
+    # return(results)
+    
     
     
 calculation('excel_test_file.xlsx')
