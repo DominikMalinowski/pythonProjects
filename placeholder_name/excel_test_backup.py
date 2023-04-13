@@ -1,6 +1,6 @@
 import openpyxl
 import math 
-
+from modules import define_quarter as dq
 
 
 def calculation(workbook):
@@ -25,29 +25,7 @@ def calculation(workbook):
         fi = math.degrees(math.atan(abs(delta_Y/delta_X)))
         distance = round(math.sqrt((delta_X)**2+(delta_Y**2)),2)
 
-        if delta_X == 0:
-            if delta_Y == 0:
-                azimuth = 'Special case - same place'
-            elif delta_Y > 0:
-                azimuth = 90
-            else:
-                azimuth = 240 
-        elif delta_X > 0:
-            if delta_Y == 0:
-                azimuth = 0
-            elif delta_Y > 0:
-                azimuth = fi 
-            else:
-                azimuth = 360 - fi
-        elif delta_X < 0:
-            if delta_Y == 0:
-                azimuth = 180
-            elif delta_Y > 0:
-                azimuth = 180 - fi 
-            else:
-                azimuth = 180 + fi
-
-        azimuth = float(round(azimuth,6))
+        azimuth = float(round(dq.define_quarter(delta_X, delta_Y, fi),6))
         
         active_sheet.cell(row = 1, column = 5).value = 'Distance'
         active_sheet.cell(row = i, column = 5).value = distance
