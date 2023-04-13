@@ -1,7 +1,9 @@
 import openpyxl
 import math 
 from modules import define_quarter as dq
+from modules import input_method_selection as ims
 
+selected_input_method = ims.input_method_selection()
 
 def calculation(workbook):
     """
@@ -9,6 +11,8 @@ def calculation(workbook):
     """
     wb = openpyxl.load_workbook(workbook)
     active_sheet = wb.active
+    active_sheet['E1'] = 'Distance'
+    active_sheet['F1'] = 'Azimuth'
 
     for i in range(2, active_sheet.max_row + 1):
         print(f'Calculating distance and azimuth for row number: {i}')
@@ -22,20 +26,17 @@ def calculation(workbook):
         delta_X = X2 - X1
         delta_Y = Y2 - Y1
 
-        fi = math.degrees(math.atan(abs(delta_Y/delta_X)))
-        distance = round(math.sqrt((delta_X)**2+(delta_Y**2)),2)
+        distance = round(math.sqrt((delta_X)**2 + (delta_Y**2)), 2)
+        azimuth = dq.define_quarter(delta_X, delta_Y)
+        azimuth = float(round(azimuth, 6))
 
-        azimuth = float(round(dq.define_quarter(delta_X, delta_Y, fi),6))
-        
-        active_sheet.cell(row = 1, column = 5).value = 'Distance'
         active_sheet.cell(row = i, column = 5).value = distance
-
-        active_sheet.cell(row = 1, column = 6).value = 'Azimuth'
         active_sheet.cell(row = i, column = 6).value = azimuth
-
+        
         wb.save('excel_test_file_output.xlsx')
-   
     print('Calculation complete')
 
-
-calculation('excel_test_file.xlsx')
+if selected_input_method == '2':
+    calculation('excel_test_file.xlsx')
+else:
+    print('Not implemented yet')
