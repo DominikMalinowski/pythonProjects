@@ -2,6 +2,7 @@ import openpyxl
 import math 
 from modules import define_quarter as dq
 from modules import input_method_selection as ims
+from modules import enter_coordinates_manually as ecm
 
 selected_input_method = ims.input_method_selection()
 
@@ -36,7 +37,14 @@ def calculation(workbook):
         wb.save('excel_test_file_output.xlsx')
     print('Calculation complete')
 
-if selected_input_method == '2':
-    calculation('excel_test_file.xlsx')
-else:
-    print('Not implemented yet')
+#TODO: displaying appropriate message if user provide something different thant one of avaliable option 
+while True:
+    if selected_input_method == '1':
+        calculation(ecm.enter_coordinates_manually())
+        break
+    elif selected_input_method == '2':
+        calculation('excel_test_file.xlsx')
+        break
+    else: 
+        print('Please select one of provided option')
+        continue
