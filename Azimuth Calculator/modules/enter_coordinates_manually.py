@@ -11,6 +11,8 @@ def enter_coordinates_manually():
     for i in range(1,7):
         active_sheet.cell(row = 1, column = i).value = headers[i-1]
 
+    print("Please provide coordinate having decimal places separated with '.'")
+
     for n in coordinates:
         print(f'Please provide coordinate for {n}')
         coordinate = float(input())

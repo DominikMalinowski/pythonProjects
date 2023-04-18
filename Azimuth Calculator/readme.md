@@ -1,4 +1,4 @@
-Welcome 
+#Welcome 
 This program is calculating azimuth and distance for:
 
 option 1) single pair of X,Y coordinate 

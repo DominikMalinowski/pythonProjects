@@ -37,7 +37,7 @@ def calculation(workbook):
         active_sheet.cell(row = i, column = 6).value = azimuth
         
         wb.save('Results.xlsx')
-    print('Calculation complete')
+    print('Calculation complete - please check "Results.xlsx" file')
     time.sleep(2)
 
 while True:
