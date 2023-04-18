@@ -1,6 +1,6 @@
 
 def input_method_selection():
-    options = ['Provide coordinate by hand', 'Load populated .xlsx file']
+    options = ['Provide coordinate by hand', 'Load populated .xlsx file - "Input File Template"']
     input_message = "Select method of providing data:\n"
     user_input = ''
 

@@ -1,16 +1,17 @@
 import openpyxl
 import math 
+import time 
 from modules import define_quarter as dq
 from modules import input_method_selection as ims
 from modules import enter_coordinates_manually as ecm
 
+#TODO: 
+# displaying appropriate message if user provide something different thant one of avaliable option 
+
 selected_input_method = ims.input_method_selection()
-output_file = 'results.xlsx'
 
 def calculation(workbook):
-    """
-    Base function that calculate value of fi and decide how to use in calculation base on value for delta X and Y 
-    """
+
     wb = openpyxl.load_workbook(workbook)
     active_sheet = wb.active
     active_sheet['E1'] = 'Distance'
@@ -35,16 +36,16 @@ def calculation(workbook):
         active_sheet.cell(row = i, column = 5).value = distance
         active_sheet.cell(row = i, column = 6).value = azimuth
         
-        wb.save(output_file)
+        wb.save('Results.xlsx')
     print('Calculation complete')
+    time.sleep(2)
 
-#TODO: displaying appropriate message if user provide something different thant one of avaliable option 
 while True:
     if selected_input_method == '1':
         calculation(ecm.enter_coordinates_manually())
         break
     elif selected_input_method == '2':
-        calculation('excel_test_file.xlsx')
+        calculation('Input File Template.xlsx')
         break
     else: 
         print('Please select one of provided option')
