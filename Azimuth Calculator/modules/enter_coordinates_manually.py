@@ -1,12 +1,10 @@
 import openpyxl
-import os
 
 def enter_coordinates_manually():
     headers = ['X1', 'Y1', 'X2', 'Y2', 'Distance', 'Azimuth']
     coordinates = ['X1', 'Y1', 'X2', 'Y2']
     output_file_name = 'manually_provided_coordinates.xlsx'
     
-
     wb2 = openpyxl.Workbook()
     active_sheet = wb2.active
 
