@@ -5,6 +5,7 @@ from modules import input_method_selection as ims
 from modules import enter_coordinates_manually as ecm
 
 selected_input_method = ims.input_method_selection()
+output_file = 'results.xlsx'
 
 def calculation(workbook):
     """
@@ -34,7 +35,7 @@ def calculation(workbook):
         active_sheet.cell(row = i, column = 5).value = distance
         active_sheet.cell(row = i, column = 6).value = azimuth
         
-        wb.save('excel_test_file_output.xlsx')
+        wb.save(output_file)
     print('Calculation complete')
 
 #TODO: displaying appropriate message if user provide something different thant one of avaliable option 
