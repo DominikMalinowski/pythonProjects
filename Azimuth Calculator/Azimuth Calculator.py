@@ -47,6 +47,6 @@ while True:
     elif selected_input_method == '2':
         calculation('Input File Template.xlsx')
         break
-    else: 
-        print('Please select one of provided option')
-        continue
+    # else: 
+    #     print('Please select one of provided option')
+    #     continue

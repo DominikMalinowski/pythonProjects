@@ -12,3 +12,5 @@ def input_method_selection():
 
     return user_input
 
+
+
