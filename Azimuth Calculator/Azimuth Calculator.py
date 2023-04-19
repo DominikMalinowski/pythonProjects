@@ -5,9 +5,6 @@ from modules import define_quarter as dq
 from modules import input_method_selection as ims
 from modules import enter_coordinates_manually as ecm
 
-#TODO: 
-# displaying appropriate message if user provide something different thant one of avaliable option 
-
 selected_input_method = ims.input_method_selection()
 
 def calculation(workbook):
@@ -30,7 +27,7 @@ def calculation(workbook):
         delta_Y = Y2 - Y1
 
         distance = round(math.sqrt((delta_X)**2 + (delta_Y**2)), 2)
-        azimuth = dq.define_quarter(delta_X, delta_Y)
+        azimuth = 10/9 *(math.degrees(dq.define_quarter(delta_X, delta_Y)))
         azimuth = float(round(azimuth, 6))
 
         active_sheet.cell(row = i, column = 5).value = distance
@@ -47,6 +44,3 @@ while True:
     elif selected_input_method == '2':
         calculation('Input File Template.xlsx')
         break
-    # else: 
-    #     print('Please select one of provided option')
-    #     continue
