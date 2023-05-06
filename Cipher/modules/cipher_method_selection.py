@@ -1,6 +1,6 @@
 
-def input_method_selection():
-    options = ['Caesar shift', 'Binary']
+def cipher_method_selection():
+    options = ['Binary','Caesar shift', 'Vigenere Cipher']
     input_message = "Please select you cipher method:\n"
     user_input = ''
 
