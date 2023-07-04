@@ -9,7 +9,8 @@ erase_list = []
 
 # Change list into string, strip and replace ; 
 sample_List_string = sample_List_2[0]
-list_stripped_and_replaced = sample_List_string.strip().replace(';',',')
+list_stripped = sample_List_string.replace(' ','')
+list_stripped_and_replaced = list_stripped.replace(';',',')
 sample_List = list_stripped_and_replaced.split(',')
 
 # creating list of elements that have to be removed 

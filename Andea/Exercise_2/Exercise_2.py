@@ -10,7 +10,7 @@ def guess_number():
     generated_value = random.randint(1,9)
     number_of_tries = 3 
 
-    print('There is hidden number - try to guess it')
+    print('There is hidden number in range from 1 to 9 - try to guess it')
     # loop for repeating guess for the user
     for i in range(0,int(number_of_tries)):
         print(f"You have {int(number_of_tries)-i} changes left")
