@@ -1,13 +1,14 @@
 #TODO:
 # allow user to provide text or input populated file localization 
-# implement the Ceasar cipher 
 # implement the Vigenere Cipher
+#implement use of cipher encrypt 
 
 
 from modules import binary as b
+from modules import cesar as c
 from modules import cipher_method_selection as cms
 from modules import inputh_method_selection as ims
-from modules.file_managment import read_file as rf
+from modules.file_managment import read_file as rf 
 from modules.file_managment import save_output_as_file as soaf
 
 input_selected = ims.input_method_selection()
