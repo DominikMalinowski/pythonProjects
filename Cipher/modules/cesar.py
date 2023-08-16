@@ -1,6 +1,7 @@
 
 def cesar(text, shift): 
     cesar_text = ''
+    shift = int(shift)
 
     for i in range(len(text)):
         char = text[i]
