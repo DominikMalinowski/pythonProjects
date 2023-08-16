@@ -7,6 +7,7 @@ def vigenere(text, key):
              ord(key[i])) % 26
         x += ord('A')
         vigenere_text.append(chr(x))
-    return("" . join(vigenere_text))
+    return("".join(vigenere_text))
      
-vigenere('dupa','zad')
+vigenere('dupa','zady')
+
