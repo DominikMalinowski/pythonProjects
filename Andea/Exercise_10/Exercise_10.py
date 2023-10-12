@@ -23,4 +23,4 @@ def divide_number():
 
     print(f"Division result is {result}")
 
-divide_number()
+divide_number() 
