@@ -4,11 +4,8 @@ import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from selenium.webdriver import ActionChains
 
 import urllib.request
-
-
 
 # path to webdriver
 driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
