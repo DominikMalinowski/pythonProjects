@@ -5,13 +5,13 @@ def exception():
 exception()
 
 # saving raised exeption 
-import trackeback 
+import traceback
 
 try:
     raise Exception('Placeholder')
 except: 
     errorFile = open('errorInfo.txt','w')
-    errorFile.write(trackeback.format_exc())
+    errorFile.write(traceback.format_exc())
     errorFile.close()
 
 # assertion 
@@ -23,4 +23,25 @@ assert value == 'Yes','Assertion error is raised is assertion return false'
 
 # logging 
 import logging
-logging.basicConfig(level=logging.DEBUG, format=' %(sdctime)s - %(levelname)s - %(message)s')
+FORMAT = ' %(asctime)s - %(levelname)s - %(message)s'
+logging.basicConfig(level=logging.DEBUG, format=FORMAT)
+
+def count(n):
+    logging.debug('Start')
+    for i in range(n):
+        logging.debug(f'Repeat numer: {i}')
+    logging.debug('End')
+
+count(5)
+
+# turning off logging 
+import logging
+FORMAT = ' %(asctime)s - %(levelname)s - %(message)s'
+logging.basicConfig(level=logging.DEBUG, format=FORMAT)
+logging.debug('Warning')
+
+logging.disable(logging.DEBUG)
+print('koniec')
+logging.debug('Warning2')
+logging.debug('Warning3')
+
