@@ -44,7 +44,7 @@ pdfOutputFile.closed
 import PyPDF2
 pdfReader = PyPDF2.PdfFileReader(open('file_to_rotate.pdf','rb'))
 page = pdfReader.getPage(0)
-page.rorateCloswise(90)
+page.rotateClockwise(90)
 pdfWriter = PyPDF2.PdfFileWriter()
 pdfWriter.addPage(page)
 resultPdf = open('rotated_file.pdf','wb')
