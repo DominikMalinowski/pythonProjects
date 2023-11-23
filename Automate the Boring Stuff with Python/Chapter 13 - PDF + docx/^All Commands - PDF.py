@@ -2,27 +2,27 @@
 # loading PDF 
 import PyPDF2
 pdfFile = open('placeholder.pdf','rb')
-pdfReader = PyPDF2.PdfFileReader(pdfFile)
+pdfReader = PyPDF2.PdfReader(pdfFile)
 
 # displaying text from page  
 import PyPDF2
-pdfReader = PyPDF2.PdfFileReader(open('placeholder.pdf','rb'))
+pdfReader = PyPDF2.PdfReader(open('placeholder.pdf','rb'))
 
 pageObj = pdfReader.getPage(0)
 pageObj.extractText()
 
-# openig encrypted file   
+# opening encrypted file (decrypt)
 import PyPDF2
-pdfReader = PyPDF2.PdfFileReader(open('placeholder.pdf','rb'))
-pdfReader.isEncrypted #'True' if file is encrypted 
+pdfReader = PyPDF2.PdfReader(open('placeholder.pdf','rb'))
+pdfReader.is_encrypted #'True' if file is encrypted 
 pdfReader.decrypt('rosebud') #decrypt with known password 
 pageObj = pdfReader.getPage(0)
 pageObj.extractText()
 
 # combine two pdf file 
 import PyPDF2
-pdfReader1 = PyPDF2.PdfFileReader(open('to_combine.pdf','rb'))
-pdfReader2 = PyPDF2.PdfFileReader(open('to_combine2.pdf','rb'))
+pdfReader1 = PyPDF2.PdfReader(open('to_combine.pdf','rb'))
+pdfReader2 = PyPDF2.PdfReader(open('to_combine2.pdf','rb'))
 
 pdfWriter = PyPDF2.PdfFileWriter()
 
@@ -42,7 +42,7 @@ pdfOutputFile.closed
 
 # page rotation 
 import PyPDF2
-pdfReader = PyPDF2.PdfFileReader(open('file_to_rotate.pdf','rb'))
+pdfReader = PyPDF2.PdfReader(open('file_to_rotate.pdf','rb'))
 page = pdfReader.getPage(0)
 page.rotateClockwise(90)
 pdfWriter = PyPDF2.PdfFileWriter()
@@ -53,8 +53,8 @@ resultPdf.close()
 
 # overlapping pages 
 import PyPDF2
-pdfReader = PyPDF2.PdfFileReader(open('placeholder.pdf','rb'))
-pdfWatermark = PyPDF2.PdfFileReader(open('placeholder_watermark.pdf','rb'))
+pdfReader = PyPDF2.PdfReader(open('placeholder.pdf','rb'))
+pdfWatermark = PyPDF2.PdfReader(open('placeholder_watermark.pdf','rb'))
 pdfReaderPage = pdfReader.getPage(0)
 pdfReaderPage.mergePage(pdfWatermark.getPage(0))
 pdfWriter = PyPDF2.PdfFileWriter()
@@ -65,7 +65,7 @@ resultPdf.close()
 
 # encrypt PFD file 
 import PyPDF2
-pdfReader = PyPDF2.PdfFileReader(open('placeholder.pdf','rb'))
+pdfReader = PyPDF2.PdfReader(open('placeholder.pdf','rb'))
 pdfWriter = PyPDF2.PdfFileWriter()
 for pageNum in range(pdfReader.getPage(pageNum)):
     pdfWriter.addPage(pdfReader.getPage(pageNum))

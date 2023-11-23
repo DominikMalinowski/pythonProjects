@@ -5,12 +5,12 @@
 # - absolute path and isabs()
 # - relative path 
 # - basename and dirname 
-# - splith path 
+# - spilth path 
 # - get size of all data in path 
 # - list all folders in path 
 # - check is path exist 
 # - check is path leading to file/directory
-# - openig file 
+# - opening file 
 # - reading file 
 # - opening file in 'write' mode
 # - opening file in 'add' mode
@@ -45,7 +45,7 @@ cwd = os.getcwd()
 print('This is base name for current working dictionary: \n' + os.path.basename(cwd))
 print('This is directory name for current working dictionary: \n' + os.path.dirname(cwd))
 
-# splith path 
+# spilth path 
 import os 
 print(os.path.split(os.getcwd()))
 
@@ -62,12 +62,12 @@ pprint.pprint('This is list of all files/directory in path: \n' + str(os.listdir
 import os 
 print(os.path.exists(os.getcwd()))
 
-# check is path leadin to file/directory
+# check is path leading to file/directory
 import os 
 print(os.path.isfile(os.getcwd()))
 print(os.path.isdir(os.getcwd()))
 
-# openig file 
+# opening file 
 import os 
 file_path = os.path.join(os.getcwd(),'Automate the Boring Stuff with Python\Chapter 8 - Read & write files\hello.txt')
 opened_file = open(file_path)

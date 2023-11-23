@@ -4,7 +4,7 @@ def exception():
 
 exception()
 
-# saving raised exeption 
+# saving raised exception 
 import traceback
 
 try:
@@ -29,7 +29,7 @@ logging.basicConfig(level=logging.DEBUG, format=FORMAT)
 def count(n):
     logging.debug('Start')
     for i in range(n):
-        logging.debug(f'Repeat numer: {i}')
+        logging.debug(f'Repeat number: {i}')
     logging.debug('End')
 
 count(5)
@@ -41,7 +41,7 @@ logging.basicConfig(level=logging.DEBUG, format=FORMAT)
 logging.debug('Warning')
 
 logging.disable(logging.DEBUG)
-print('koniec')
+print('End')
 logging.debug('Warning2')
 logging.debug('Warning3')
 
