@@ -41,10 +41,11 @@ workbook = openpyxl.load_workbook('{file_name}')
 sheet = workbook.get_sheet_by_name('{sheet_name}')
 workbook.save('{new_file_name_with_extension}')
 
- # creating spreadsheet 
+# creating new spreadsheet 
 import openpyxl
 workbook = openpyxl.load_workbook('{file_name}')
-workbook.create_sheet('{new_sheet_name}')
+workbook.create_sheet(index = 0, title = 'sheet_add')
+workbook.create_sheet(index = 2, title = 'sheet_add2')
 
 # removing spreadsheet
 import openpyxl
@@ -56,3 +57,4 @@ import openpyxl
 workbook = openpyxl.load_workbook('{file_name}')
 sheet = workbook.get_sheet_by_name('{sheet_name}')
 sheet['A1'] = 'Placeholder'
+
