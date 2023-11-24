@@ -21,12 +21,14 @@ import PyPDF2
 
 pdf_file_path = 'Andea\python-selenium-training-master\PythonTraining\Excercises\Chapter13pdf.pdf'
 pass_file_path = 'Andea\python-selenium-training-master\PythonTraining\Excercises\Chapter13dictionary.txt'
+new_file_pass = 'Andea\Exercise_13'
 
 cwd = os.getcwd()
 path_to_PDF = os.path.join(cwd, pdf_file_path)
 path_to_pass = os.path.join(cwd, pass_file_path)
+path_to_new = os.path.join(cwd, new_file_pass)
 
-# Function brute force decryption of PDF file via words from .txt file 
+# Function to brute force decryption of PDF file via words from .txt file 
 # parameter: documentToDecrypt - path to PDF file that gonna be brute force decrypted 
 # parameter: file_with_pass - path to .txt file with words for brute force decryption
 
@@ -34,25 +36,44 @@ def decryptPdf(documentToDecrypt, file_with_pass):
    pdfReader = PyPDF2.PdfReader(open(documentToDecrypt,'rb'))
 
    # open file with possible passwords 
-   opened_file_with_pass = open(file_with_pass) 
+   opened_file_with_pass = open(file_with_pass,'r') 
 
    # saving saving content into list 
    decrypt_list = opened_file_with_pass.read().splitlines()
 
-   # for loop to try every word in file as password 
+   #good
    for word in decrypt_list:
-      pdfReader.decrypt(word)
-      print('Decrypt: ' + word)
-      
+  
       # if statement to notify when file got encrypted 
-      if pdfReader.is_encrypted == True:
-         continue
-      else:
-         print(word)
+      if pdfReader.decrypt(word) != False:
+         print("Password is: " + word)
          break
-      
-   # info that program finish 
-   print('End')
+      else:
+         continue
+   return word
+
+print(decryptPdf(path_to_PDF, path_to_pass))
+
+# Function to create new file by using even pages of old one 
+# parameter: path to 
+# parameter: file_with_pass - path to .txt file with words for brute force decryption
+
+def new_pdf(old_file,destination_path):
+   pdfReader = PyPDF2.PdfReader(open(old_file,'rb'))
+   pdfWriter = PyPDF2.PdfWriter()
+   pdfReader.decrypt('nice')
+
+   for pageNum in range(len(pdfReader.pages)):
+      if (pageNum%2 == 1):
+         pageObj = pdfReader.pages[pageNum]
+         pdfWriter.add_page(pageObj)
+      else:
+         continue
+   
+   location = (os.path.join(destination_path,'Output.pdf'))
+   outPutPDF = open(location,'wb')
+   pdfWriter.write(outPutPDF)
+   outPutPDF.close()
 
 
-decryptPdf(path_to_PDF, path_to_pass)
+new_pdf(path_to_PDF,path_to_new)

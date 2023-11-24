@@ -12,7 +12,7 @@ import openpyxl
 workbook = openpyxl.load_workbook('{file_name}')
 sheet = workbook.get_sheet_by_name('{sheet_name}')
 
-# gettin cell and it's value from spreadsheet 
+# getting cell and it's value from spreadsheet 
 import openpyxl
 workbook = openpyxl.load_workbook('{file_name}')
 sheet = workbook.get_sheet_by_name('{sheet_name}')
@@ -21,7 +21,7 @@ cell2 = sheet(row=1, column =2)
 cell.value 
 cell2.value
 
-# gettin coordiante and value from spreadsheet 
+# getting coordinate and value from spreadsheet 
 import openpyxl
 workbook = openpyxl.load_workbook('{file_name}')
 sheet = workbook.get_sheet_by_name('{sheet_name}')
@@ -40,6 +40,11 @@ import openpyxl
 workbook = openpyxl.load_workbook('{file_name}')
 sheet = workbook.get_sheet_by_name('{sheet_name}')
 workbook.save('{new_file_name_with_extension}')
+
+# change column letter and number 
+import openpyxl
+workbook = openpyxl.load_workbook('{file_name}')
+workbook.get_column_letter(1)
 
 # creating new spreadsheet 
 import openpyxl
