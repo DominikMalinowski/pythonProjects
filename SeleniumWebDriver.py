@@ -10,8 +10,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 import time
 
-
-
 class MainTests(unittest.TestCase):
     # setUp - perform before every test
     def setUp(self):
@@ -190,4 +188,4 @@ class LostHatTest(unittest.TestCase):
         self.assertEqual(expected_text, confirmation_modal_element.text)
 
 
-button = driver.find_element(By.ID,'searchBtn')
+button = driver.find_element(By.ID,'searchBtn') 
