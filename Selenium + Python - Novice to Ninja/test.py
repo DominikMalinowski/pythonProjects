@@ -40,4 +40,88 @@ b = [2,3,6]
 c = [20,30,50]
 
 largest(a,b)
+
+# %%
+
+class Fruit(object):
+    def __init__(self) -> None:
+        print('This is a Fruit')
+    
+    def nutrition(self):
+        print('Yummy')
+
+    def fruit_shape(self):
+        print('Shape')
+
+class Apple(Fruit):
+    def __init__(self) -> None:
+        super().__init__()
+        print('Specifically an apple')
+
+    def nutrition(self):
+        print('Better')
+
+    def color(self):
+        print('Red')
+
+f1 = Fruit()
+f1.nutrition()
+f1.fruit_shape()
+
+a1 = Apple() 
+a1.nutrition()
+a1.fruit_shape()
+a1.color()
+# %%
+ 
+def exceptionHandle():
+    a = 10
+    b = 20
+    c = 0 
+
+    try:
+        d = (a+b)/c
+        print(d)
+        
+    except ZeroDivisionError:
+        print('Dived by zero')
+        # raise Exception("This is a exception")
+    except TypeError:
+        print('Wrong type')  
+    else:
+        print('No exception has been found')
+    finally:
+        print('Fin')
+
+
+exceptionHandle()
+# %%
+
+d = {'make':'bmw','model':550, 'year': 2023}
+
+def get_key(key):
+    try:
+        print(d[key])
+    except KeyError:
+        print('There is no key as: ' + key)      
+    finally:
+        print('Fin')
+
+get_key('color')
+# %%
+
+my_write = open('text.txt','w')
+my_write.write('placeholder')
+my_write.close()
+
+my_read = open('text.txt','r')
+print(my_read.read())
+
+# %%
+
+with open('placeholder.txt','w') as as_write:
+    as_write.write('extra placeholder')
+
+with open('placeholder.txt','r') as as_read:
+    print(as_read.read())
 # %%
