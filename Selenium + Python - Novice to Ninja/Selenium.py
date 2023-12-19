@@ -34,13 +34,17 @@ def diff_action(path):
     # time.sleep(2) 
     # dropdown.click()
 
-    # waiting for element 
-    multiple_select_example_id = 'multiple-select-example'
+    # # waiting for element 
+    # multiple_select_example_id = 'multiple-select-example'
 
-    wait = WebDriverWait(driver,timeout= 10, poll_frequency=1,ignored_exceptions=
-                         [NoSuchElementException, ElementNotVisibleException, ElementNotSelectableException])
+    # wait = WebDriverWait(driver,timeout= 10, poll_frequency=1,ignored_exceptions=
+    #                      [NoSuchElementException, ElementNotVisibleException, ElementNotSelectableException])
     
-    element = wait.until(EC.visibility_of_element_located((By.ID, multiple_select_example_id)))
+    # element = wait.until(EC.visibility_of_element_located((By.ID, multiple_select_example_id)))
+
+    # autocomplete field
+    
+
     
 
 
