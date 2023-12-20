@@ -42,11 +42,6 @@ def diff_action(path):
     
     # element = wait.until(EC.visibility_of_element_located((By.ID, multiple_select_example_id)))
 
-    # autocomplete field
-    
-
-    
-
 
     # # typing in text field 
     # auto_suggest_example_text_field_id = 'autosuggest'
