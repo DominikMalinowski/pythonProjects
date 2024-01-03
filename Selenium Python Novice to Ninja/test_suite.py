@@ -1,7 +1,7 @@
 
 import unittest
-from tests_folder.file_test import TestCase
-from tests_folder.file_2_test import TestCase2
+from file_test import TestCase
+from file_2_test import TestCase2
 
 tc1 = unittest.TestLoader().loadTestsFromTestCase(TestCase)
 tc2 = unittest.TestLoader().loadTestsFromTestCase(TestCase2)
