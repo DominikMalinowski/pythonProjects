@@ -1,4 +1,4 @@
-
+# require running as administrator and via "py.test" command in terminal 
 import pytest 
 
 @pytest.fixture()
