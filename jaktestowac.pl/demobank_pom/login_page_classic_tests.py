@@ -4,7 +4,6 @@ from selenium.webdriver.chrome.service import Service
 
 class LoginPageClassictest(unittest.TestCase):
     def setUp(self):
-        dupa
         self.driver = webdriver.Chrome(service=Service(r'D:\Programy\chromedriver-win64\chromedriver.exe'))
 
     def tearDown(self):
