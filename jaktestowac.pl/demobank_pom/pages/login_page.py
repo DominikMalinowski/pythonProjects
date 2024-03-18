@@ -36,14 +36,23 @@ class LoginPage:
         return self
 
     def log_in(self, user, password):
+        # combine previous methods to log in
         self.enter_username(user)
         self.enter_password(password)
         self.click_login_button()
         time.sleep(3)
         return HomePage(self.driver)
 
-    # def get_warning_text_for_id(self):
-    #     warning_message_element = self.driver.find_element(By.ID,'error_login_id')
-    #     return warning_message_element.text
+    def log_in_invalid(self, user, password):
+        # combine previous methods to log in
+        self.enter_username(user)
+        self.enter_password(password)
+        self.click_login_button()
+        time.sleep(3)
+        return self
+
+    def get_warning_text_for_id(self):
+        warning_message_element = self.driver.find_element(By.ID,'error_login_id')
+        return warning_message_element.text
 
 
