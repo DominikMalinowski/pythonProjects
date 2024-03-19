@@ -1,6 +1,7 @@
 import time
 import unittest
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from pages.quick_payment_page import QuiCkPaymentPage
 
 class QuickPaymentPageTests(unittest.TestCase):
@@ -10,17 +11,26 @@ class QuickPaymentPageTests(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
 
-    def test_quick_payment(self):
+    def test_page_title(self):
+        quic_payment_page = QuiCkPaymentPage(self.driver)
+        quic_payment_page.visit()
+
+        page_title_text = quic_payment_page.page_title()
+
+        self.assertEqual('Brak wiadomości', page_title_text,
+                         f'Actual text is different than expected: {page_title_text}')
+
+    # def test_successful_quick_payment(self, amount, title):
+    def test_successful_quick_payment(self):
         amount = 108
         title = 'placeholder'
+        receiver = 'Chuck Demobankowy'
 
         quic_payment_page = QuiCkPaymentPage(self.driver)
         quic_payment_page.visit()
 
-        transfer_text = quic_payment_page.payment(amount, title)
-
-        self.assertEqual('Brak wiadomości', transfer_text,
-                         f'Actual text is different than expected: {transfer_text}')
-        # self.assertEqual(f'Przelew wykonany! Chuck Demobankowy - {amount}PLN - {title}', transfer_text,
-        #                  f'Actual text is different than expected: {transfer_text}')
-
+        quic_payment_page.select_receiver(receiver)
+        quic_payment_page.provide_amount(amount)
+        quic_payment_page.provide_title(title)
+        quic_payment_page.click_execute_button()
+        time.sleep(3)
