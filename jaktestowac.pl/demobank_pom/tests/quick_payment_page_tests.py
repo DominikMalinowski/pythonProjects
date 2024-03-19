@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from pages.quick_payment_page import QuiCkPaymentPage
 
+
 class QuickPaymentPageTests(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
@@ -22,7 +23,7 @@ class QuickPaymentPageTests(unittest.TestCase):
 
     # def test_successful_quick_payment(self, amount, title):
     def test_successful_quick_payment(self):
-        amount = 108
+        amount = '108,50'
         title = 'placeholder'
         receiver = 'Chuck Demobankowy'
 
@@ -34,3 +35,7 @@ class QuickPaymentPageTests(unittest.TestCase):
         quic_payment_page.provide_title(title)
         quic_payment_page.click_execute_button()
         time.sleep(3)
+
+        payment_message = quic_payment_page.page_title()
+        self.assertEqual(f'Przelew wykonany! {receiver} - {amount}PLN - {title}', payment_message,
+                         f'Actual message differs than expected. Actual message: {payment_message}')
