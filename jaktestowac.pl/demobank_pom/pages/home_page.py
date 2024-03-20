@@ -1,5 +1,6 @@
 
 from selenium.webdriver.common.by import By
+from pages import page_factory
 
 class HomePage:
     def __init__(self, driver):
@@ -14,3 +15,8 @@ class HomePage:
     def get_messages_text(self):
         message_element = self.driver.find_element(By.ID,'show_messages')
         return message_element.text
+
+    def log_out(self):
+        log_off_button = self.driver.find_element(By.ID,'log_out')
+        log_off_button.click()
+        return page_factory.login(self.driver)

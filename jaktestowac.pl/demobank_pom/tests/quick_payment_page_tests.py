@@ -2,7 +2,7 @@ import time
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from pages.quick_payment_page import QuiCkPaymentPage
+from pages import page_factory
 
 
 class QuickPaymentPageTests(unittest.TestCase):
@@ -13,7 +13,7 @@ class QuickPaymentPageTests(unittest.TestCase):
         self.driver.quit()
 
     def test_page_title(self):
-        quic_payment_page = QuiCkPaymentPage(self.driver)
+        quic_payment_page = page_factory.quick_payment(self.driver)
         quic_payment_page.visit()
 
         page_title_text = quic_payment_page.page_title()
@@ -27,7 +27,7 @@ class QuickPaymentPageTests(unittest.TestCase):
         title = 'placeholder'
         receiver = 'Chuck Demobankowy'
 
-        quic_payment_page = QuiCkPaymentPage(self.driver)
+        quic_payment_page = page_factory.quick_payment(self.driver)
         quic_payment_page.visit()
 
         quic_payment_page.select_receiver(receiver)

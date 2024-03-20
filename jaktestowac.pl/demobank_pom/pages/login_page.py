@@ -2,7 +2,7 @@
 import time
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
-from pages.home_page import HomePage
+from pages import page_factory
 
 class LoginPage:
     def __init__(self, driver:WebDriver):
@@ -41,7 +41,7 @@ class LoginPage:
         self.enter_password(password)
         self.click_login_button()
         time.sleep(3)
-        return HomePage(self.driver)
+        return page_factory.home(self.driver)
 
     def log_in_invalid(self, user, password):
         # combine previous methods to log in
@@ -55,4 +55,7 @@ class LoginPage:
         warning_message_element = self.driver.find_element(By.ID,'error_login_id')
         return warning_message_element.text
 
+    def get_login_page_text(self):
+        header_element = self.driver.find_element(By.ID,'header_2')
+        return header_element.text
 

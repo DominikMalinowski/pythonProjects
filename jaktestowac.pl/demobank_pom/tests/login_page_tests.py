@@ -1,7 +1,6 @@
 import unittest
 from selenium import webdriver
-from pages.login_page import LoginPage
-from pages.home_page import HomePage
+from pages import page_factory
 
 
 class LoginPageTests(unittest.TestCase):
@@ -15,7 +14,7 @@ class LoginPageTests(unittest.TestCase):
         test_username = 'placeholder'
         test_password = 'password'
 
-        login_page = LoginPage(self.driver)
+        login_page = page_factory.login(self.driver)
         login_page.visit()
         home_page = login_page.log_in(test_username, test_password)
         messages_text = home_page.get_messages_text()
@@ -26,7 +25,7 @@ class LoginPageTests(unittest.TestCase):
         test_wrong_username = 'test'
         test_password = 'password'
 
-        login_page = LoginPage(self.driver)
+        login_page = page_factory.login(self.driver)
         login_page.visit()
         login_page.log_in_invalid(test_wrong_username, test_password)
         warning_message_text = login_page.get_warning_text_for_id()
