@@ -14,7 +14,7 @@ class LostHatSmokeTests(unittest.TestCase):
    def setUpClass(self):
        config = cr.load()
        self.base_url = config["base_url"]
-       driver = webdriver.Chrome(service=Service(executable_path=config["chromedriver_path"]))
+       driver = webdriver.Chrome()
 
        self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
        self.login_url = self.base_url + 'login'

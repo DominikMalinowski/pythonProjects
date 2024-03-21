@@ -13,7 +13,7 @@ class MainTests(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+        self.driver = webdriver.Chrome()
 
     def test_demo_login(self):
         driver = self.driver

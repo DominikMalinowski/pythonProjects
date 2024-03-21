@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.common.exceptions import WebDriverException
 
 # path to webdriver
-driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+driver = webdriver.Chrome()
 
 # opening new tab in chrome
 driver.get('https://demobank.jaktestowac.pl/logowanie_etap_1.html')

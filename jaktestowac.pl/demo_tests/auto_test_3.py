@@ -16,7 +16,7 @@ class MainTests(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        driver = webdriver.Chrome(service=Service(r'D:\ChromeDriver\chromedriver.exe'))
+        driver = webdriver.Chrome()
         self.ef_driver = EventFiringWebDriver(driver, ScreenshotListener())
 
     # def tearDown(self):
