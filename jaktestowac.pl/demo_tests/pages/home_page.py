@@ -8,7 +8,6 @@ class HomePage:
     def __init__(self, driver: WebDriver):
         self.url = 'https://autodemo.testoneo.com/en/my-account'
         self.driver = driver
-        # self.username_xpath = '//a[@class="account"]/*[@class="hidden-sm-down"]'
         self.username_xpath = '//header*[@class="hidden-sm-down"]'
 
     def visit(self):

@@ -9,9 +9,9 @@ class BaseTestClass(unittest.TestCase):
 
     @classmethod
     def setUp(self):
-        config = cr.load()
-
         driver = webdriver.Chrome()
+
+        config = cr.load()
         if config["event_firing_driver"] == True:
             self.conf_driver = EventFiringWebDriver(driver, ScreenshotListener())
         else:
