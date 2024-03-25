@@ -1,5 +1,10 @@
-# Demo test Git
-Test project for Git with Python and PyCharm 
+# Demo Test Git
+Project for getting to know Git with support software.
 
-text
+## Source
 ![alt text](https://1000logos.net/wp-content/uploads/2020/08/Python-Emblem.jpg)
+
+## Technologies
+- Git v2.20
+- PyCharm v2018.3.5
+- Python v3.7
