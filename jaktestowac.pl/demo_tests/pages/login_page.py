@@ -1,18 +1,17 @@
 
 import time
-from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
-from pages.home_page import HomePage
+from pages import home_page
 
 
 class LoginPage:
-    def __init__(self, driver:WebDriver):
+    def __init__(self, driver):
         self.url = 'https://autodemo.testoneo.com/en/login?back=my-account'
         self.driver = driver
         self.header_xpath = '//header[@class="page-header"]'
-        self.login_field_xpath = '//header*[@class="form-control"]'
-        self.password_field_xpath = '//header*[@class="form-control js-child-focus js-visible-password"]'
-        self.button_xpath = '//header*[@class="btn btn-primary"]'
+        self.login_field_xpath = '//*[@type="email"]'
+        self.password_field_xpath = '//*[@type="password"]'
+        self.button_xpath = '//*[@id="submit-login"]'
         self.error_message_xpath = '//*[@class="alert alert-danger"]'
 
     def visit(self):
@@ -24,7 +23,7 @@ class LoginPage:
         header_element = self.driver.find_element(By.XPATH, self.header_xpath)
         return header_element.text
 
-    def get_warning_text(self):
+    def get_error_text(self):
         warning_message_element = self.driver.find_element(By.XPATH, self.error_message_xpath)
         return warning_message_element.text
 
@@ -54,7 +53,7 @@ class LoginPage:
         self.enter_password(password)
         self.click_login_button()
         time.sleep(3)
-        return HomePage(self.driver)
+        return home_page.HomePage(self.driver)
 
     def log_in_invalid(self, user, password):
         # combine previous methods to log in

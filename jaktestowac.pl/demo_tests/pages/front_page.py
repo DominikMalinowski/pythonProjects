@@ -25,7 +25,6 @@ class FrontPage():
         return  self
 
 
-
     def get_amount_of_element_on_main_page(self):
         elements_list = self.driver.find_elements(By.XPATH,self.products_xpath)
         return elements_list
@@ -34,12 +33,12 @@ class FrontPage():
         slider = self.driver.find_element(By.XPATH, self.slider_xpath)
         return {'width': slider.size['width'], 'height': slider.size['height']}
 
-    def get_slider_slides(self):
-        slider_slides = self.driver.find_element(By.XPATH,self.slider_slides_xpath)
-        return slider_slides
+    def get_slider_slides_count(self):
+        slider_slides = self.driver.find_elements(By.XPATH,self.slider_slides_xpath)
+        return len(slider_slides)
 
     def get_slider_content(self):
-        sliders_element = self.driver.find_element(By.XPATH, self.slider_content_xpath)
+        sliders_element = self.driver.find_elements(By.XPATH, self.slider_content_xpath)
         return sliders_element
 
     def get_currency(self):
