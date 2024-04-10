@@ -1,7 +1,7 @@
 
 import unittest
 
-from lost_hat_front_page_pom_tests import LostHatsFrontPagePomTests
+from lost_hat_home_page_pom_tests import LostHatsFrontPagePomTests
 from lost_hat_login_page_pom_tests import LostHatLoginPomTest
 
 def full_suite():
