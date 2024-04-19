@@ -1,0 +1,10 @@
+{
+  "base_url": "https://autodemo.testoneo.com/en/",
+  "chromedriver_path": "D:\\ChromeDriver\\chromedriver.exe",
+  "correct_mail" : "mail@mail.com",
+  "correct_pass" : "passwordnigga",
+  "correct_user_fullname": "place holder",
+  "incorrect_mail" : "dupa@dupa.com",
+  "incorrect_pass" : "israel_is_a_country",
+  "event_firing_driver": false
+}
