@@ -5,3 +5,4 @@ test my job name5:
   stage: test
   script:
     - python3 hello.py
+    - python3 onboarding.py
