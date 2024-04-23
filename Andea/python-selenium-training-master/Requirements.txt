@@ -1,9 +1,0 @@
-unittest2
-selenium
-pyodbc
-pytest
-IPython
-dotmap
-pyinputplus
-openpyxl
-PyPDF2
