@@ -4,4 +4,4 @@ stages:
 test my job name:
   stage: test
   script:
-    - python3 hello.py
+    - python3 hello2.py
