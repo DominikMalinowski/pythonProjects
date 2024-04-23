@@ -1,7 +1,0 @@
-stages:
-  - test
-
-test my job name4:
-  stage: test
-  script:
-    - python3 hello.py
