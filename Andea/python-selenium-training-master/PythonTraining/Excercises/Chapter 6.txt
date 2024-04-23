@@ -1,1 +1,0 @@
-adjust your solution for chapter 4, and allow user to put the list with ; as a delimiter. You should also remove white spaces from the imput.
