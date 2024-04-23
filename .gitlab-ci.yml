@@ -4,4 +4,4 @@ stages:
 my job name:
   stage: test
   script:
-    - python3 gitlab_ci/hello.py
+    - python3 hello.py
